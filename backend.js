@@ -23,11 +23,19 @@ app.use('/', function(req,res) {
     res.sendFile(path.join(__dirname+'/index.html'));
 });
 
+/* THESE DON'T WORK ***
 // GET 
 app.get('/whatever', (req, res) => {
     console.log(req.query.action);
     res.send(`Request received`);
 });
+
+// POST 
+app.post('/', (req, res) => {
+    console.log(req.query.action);
+    res.send(`Request received`);
+});
+*/
 
 // Start listening
 server.listen(port, () => {

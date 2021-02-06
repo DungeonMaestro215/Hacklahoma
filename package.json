@@ -2,15 +2,11 @@
   "name": "hacklahoma",
   "version": "1.0.0",
   "description": "Hacklahoma 2021",
-<<<<<<< Updated upstream
-  "main": "backend.js",
-=======
   "main": "spotifyAPI.js",
   "dependencies": {
     "axios": "^0.21.1"
   },
   "devDependencies": {},
->>>>>>> Stashed changes
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,7 +19,6 @@
   "bugs": {
     "url": "https://github.com/DungeonMaestro215/Hacklahoma/issues"
   },
-<<<<<<< Updated upstream
   "homepage": "https://github.com/DungeonMaestro215/Hacklahoma#readme",
   "dependencies": {
     "axios": "^0.21.1",
@@ -31,7 +26,4 @@
     "express": "^4.17.1",
     "path": "^0.12.7"
   }
-=======
-  "homepage": "https://github.com/DungeonMaestro215/Hacklahoma#readme"
->>>>>>> Stashed changes
 }
