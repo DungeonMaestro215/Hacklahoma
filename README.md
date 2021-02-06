@@ -1,4 +1,4 @@
 # Hacklahoma
 Hacklahoma 2021
 
-By Denny, Will, Logan
+By Denny, Will, Logan, Simon
