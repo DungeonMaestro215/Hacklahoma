@@ -1,3 +1,5 @@
+const {getAuth} = require('./spotifyAPI.js') ;
+
 /* Setup some stuff */
 const http = require('http');
 const express = require('express');     // Using Express app for communications
@@ -6,21 +8,34 @@ const path = require('path');
 // const body_parser = require('body-parser');
 const app = express();
 app.use(express.json());
-app.use(express.static("express"));
+// app.use(express.static("express"));
 const port = 3000;
 const server = http.createServer(app);
 // app.use(body_parser.json());
 app.use(cors());
 
+
+//api stuff
+app.get('/static/authenticate', async function(req,res) {
+    //run the api to auth spotify
+    let test = await getAuth();
+    res.send(test.data)//data it returns
+});
+
+
 // Serve static files
 // http://expressjs.com/en/starter/static-files.html
 app.use('/static', express.static('static'));
 app.use('/node_modules', express.static('node_modules'));
-// app.use(express.static('node_modules'));
 
 // Default URL for website
 app.use('/', function(req,res) {
-    res.sendFile(path.join(__dirname+'/index.html'));
+    console.log('help me');
+    res.sendFile(path.join(__dirname+'/static/index.html'));
+});
+
+app.use('*', function(req,res) {
+    res.send("Error, page not found.");
 });
 
 /* THESE DON'T WORK ***

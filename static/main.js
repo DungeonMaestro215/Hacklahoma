@@ -1,5 +1,6 @@
 window.onload = () => {
     console.log("Loaded");
+    // document.getElementById('test').addEventListener('click', () => communicator());
     
     document.getElementById("linkSpotifyButton").addEventListener("click", function() {
         linkSpotify();
@@ -21,4 +22,9 @@ function linkSpotify() {
     `
 
     document.getElementById("groupButtons").innerHTML = newGroupButtons;
+    document.getElementById('test').addEventListener('click', communicator);
+}
+
+export function randomCode() {
+    return 2;
 }
