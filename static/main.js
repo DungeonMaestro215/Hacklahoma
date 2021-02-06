@@ -22,4 +22,9 @@ function linkSpotify() {
     `
 
     document.getElementById("groupButtons").innerHTML = newGroupButtons;
+    document.getElementById('test').addEventListener('click', communicator);
+}
+
+export function randomCode() {
+    return 2;
 }

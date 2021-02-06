@@ -29,15 +29,16 @@ async function getAuth() {
         const results = await axios({
             method: 'post',
             url: `https://accounts.spotify.com/api/token`,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Basic ' + Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64') // client id and secret from env
+              },
             data: { 
-              grant_type: "authorization_code",
+              grant_type: 'authorization_code',
               code: '/authorize endpoint', 
               redirect_uri: 'https://wbucher3.github.io/background.html'
-            },
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-              'Authorization': 'Basic ' + Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64') // client id and secret from env
             }
+            
         });
         return results;
     }
@@ -89,4 +90,5 @@ async function main() {
     let test = await getAuth()
     console.log(test);
 }
+module.exports = { getAuth } ;
 main();
