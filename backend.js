@@ -19,7 +19,7 @@ app.use(cors());
 app.get('/static/authenticate', async function(req,res) {
     //run the api to auth spotify
     let test = await getAuth();
-    res.send(test)//data it returns
+    res.send(test.data)//data it returns
 });
 
 

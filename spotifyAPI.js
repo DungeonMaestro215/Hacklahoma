@@ -11,8 +11,8 @@ const CLIENT_SECRET = '265599f1a8a142148b7a101b695a317a'
  */
 
  //using axios 
- const axios = require('axios').default;
-
+const axios = require('axios').default;
+const qs = require('qs');
 
 //https://developer.spotify.com/documentation/general/guides/authorization-guide/
 /**this returns a body with json format
@@ -25,18 +25,39 @@ const CLIENT_SECRET = '265599f1a8a142148b7a101b695a317a'
 }
  */
 async function getAuth() {
+    try {
+        const results = await axios({
+            method: 'get',
+            url: 'https://accounts.spotify.com/authorize',
+            query: qs.stringify({
+                client_id: CLIENT_ID,
+                response_type: 'code',
+                redirect_uri: 'https://google.com',
+            })
+        })
+        return results;
+
+
+    } 
+    catch (error) {
+        return error;
+    }
+}
+
+
+async function getToken() {
     try  {
         const results = await axios({
             method: 'post',
             url: `https://accounts.spotify.com/api/token`,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64') // client id and secret from env
-              },
-            data: { 
-              grant_type: 'authorization_code',
+            data: qs.stringify({
+              grant_type: "authorization_code",
               code: '/authorize endpoint', 
-              redirect_uri: 'https://wbucher3.github.io/background.html'
+              redirect_uri: 'https://wbucher3.github.io/background.html',
+            }),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Authorization': 'Basic ' + Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64') // client id and secret from env
             }
             
         });
