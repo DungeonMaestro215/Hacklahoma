@@ -13,6 +13,7 @@ body, html {
 .bg {
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .bg::before {
@@ -25,9 +26,6 @@ body, html {
     position: absolute;
     background-image: url("pics/background.jpg");
   
-    /* Full height */
-    /* height: 100%; */
-  
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat; 
@@ -38,24 +36,25 @@ body, html {
 
 #groupButtons {
     width: 100%;
+    justify-content: center;
 }
 
 .groupButton {
     height: 8rem;
     width: 100%;
-    border: 2px solid #05ffa1;
+    border: 4px solid #05ffa1;
     font-size: 3.5rem;   
     color: #ff71ce;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(5px) grayscale(50%);
     box-shadow:
-    0 0 7px 3px #ff71ce;
+    0 0 10px 5px #ff71ce;
 }
 
 .groupButton:hover {
     background-color: transparent;
     color: #ff71ce;
-    border: 2px solid #05ffa1;
+    border: 4px solid #05ffa1;
     box-shadow:
-    0 0 15px 8px #ff71ce;
+    0 0 15px 10px #ff71ce;
     transition: linear .1s;
 }
