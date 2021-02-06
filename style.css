@@ -1,0 +1,61 @@
+body, html {
+    height: 100%;
+    font-family: 'Lobster', cursive;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+}
+
+.bg::before {
+    /* The image used */
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url("pics/background.jpg");
+  
+    /* Full height */
+    /* height: 100%; */
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+    filter: grayscale(80%);
+}
+
+#groupButtons {
+    width: 100%;
+}
+
+.groupButton {
+    height: 8rem;
+    width: 100%;
+    border: 2px solid #05ffa1;
+    font-size: 3.5rem;   
+    color: #ff71ce;
+    backdrop-filter: blur(8px);
+    box-shadow:
+    0 0 7px 3px #ff71ce;
+}
+
+.groupButton:hover {
+    background-color: transparent;
+    color: #ff71ce;
+    border: 2px solid #05ffa1;
+    box-shadow:
+    0 0 15px 8px #ff71ce;
+    transition: linear .1s;
+}
