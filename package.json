@@ -5,6 +5,8 @@
   "main": "backend.js",
   "dependencies": {
     "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "node.js": "0.0.1-security",
     "passport-spotify": "^2.0.0"
   },
