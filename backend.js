@@ -26,6 +26,7 @@ app.get('/static/authenticate', async function(req,res) {
 // Serve static files
 // http://expressjs.com/en/starter/static-files.html
 app.use('/static', express.static('static'));
+app.use('/pics', express.static('pics'));
 app.use('/node_modules', express.static('node_modules'));
 // app.use(express.static('node_modules'));
 
