@@ -11,7 +11,7 @@ const CLIENT_SECRET = '265599f1a8a142148b7a101b695a317a'
  */
 
  //using axios 
-import axios from axios
+ const axios = require('axios').default;
 
 
 //https://developer.spotify.com/documentation/general/guides/authorization-guide/
@@ -30,15 +30,16 @@ async function getAuth() {
             method: 'post',
             url: `https://accounts.spotify.com/api/token`,
             data: { 
-              grant_type: 'authorization_code',
-              code: req.query.code, 
-              redirect_uri: 'http://192.168.0.141:3000/'
+              grant_type: "authorization_code",
+              code: '/authorize endpoint', 
+              redirect_uri: 'https://wbucher3.github.io/background.html'
             },
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
               'Authorization': 'Basic ' + Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64') // client id and secret from env
             }
         });
+        return results;
     }
     catch (error) {
         return error;
@@ -46,13 +47,18 @@ async function getAuth() {
 }
 
 //gets the current user's id, needed for all other calls
-async function getCurrentUser() {
+async function getCurrentUser(token) {
     try  {
         const results = await axios( {
             method: 'get',
             url: 'https://api.spotify.com/v1/me',
+            header: {
+                'Authorization':'Bearer ' + token,
+                'Content-Type': 'application/json'
+            }
             
         });
+        return results;
     }
     catch (error) {
         return error;
@@ -78,3 +84,9 @@ async function CreatePlaylist(playlistName) {
     }
 
 }
+
+async function main() {
+    let test = await getAuth()
+    console.log(test);
+}
+main();
