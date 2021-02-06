@@ -90,4 +90,5 @@ async function main() {
     let test = await getAuth()
     console.log(test);
 }
+module.exports = { getAuth } ;
 main();

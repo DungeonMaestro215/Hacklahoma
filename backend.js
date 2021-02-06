@@ -1,3 +1,5 @@
+const {getAuth} = require('./spotifyAPI.js') ;
+
 /* Setup some stuff */
 const http = require('http');
 const express = require('express');     // Using Express app for communications
@@ -12,9 +14,19 @@ const server = http.createServer(app);
 // app.use(body_parser.json());
 app.use(cors());
 
+
+//api stuff
+app.get('/static/authenticate', async function(req,res) {
+    //run the api to auth spotify
+    let test = await getAuth();
+    res.send(test)//data it returns
+});
+
+
 // Serve static files
 // http://expressjs.com/en/starter/static-files.html
 app.use('/static', express.static('static'));
+app.use('/pics', express.static('pics'));
 app.use('/node_modules', express.static('node_modules'));
 // app.use(express.static('node_modules'));
 
