@@ -1,4 +1,4 @@
-// Setup some stuff
+/* Setup some stuff */
 const http = require('http');
 const express = require('express');     // Using Express app for communications
 const cors = require('cors');           // CORS
@@ -12,14 +12,21 @@ const server = http.createServer(app);
 // app.use(body_parser.json());
 app.use(cors());
 
+// Serve static files
+// http://expressjs.com/en/starter/static-files.html
+app.use('/static', express.static('static'));
+app.use('/node_modules', express.static('node_modules'));
+// app.use(express.static('node_modules'));
+
 // Default URL for website
 app.use('/', function(req,res) {
     res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 // GET 
-app.get('/', (req, res) => {
-    res.json(`Request received`);
+app.get('/whatever', (req, res) => {
+    console.log(req.query.action);
+    res.send(`Request received`);
 });
 
 // Start listening
