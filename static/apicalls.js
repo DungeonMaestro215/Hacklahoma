@@ -51,19 +51,19 @@ async function getToken(codeParam) {
  */
 async function searchSong(codeParam, searchTerm) {
     console.log("Token: " + codeParam);
-    let params = { 
+    let parameters = { 
         q: searchTerm,
         type: 'track',
         limit: 1
       };
-    let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+    params = Object.keys(parameters).map(key => key + '=' + parameters[key]).join('&');
     console.log(queryString);
 
     try  {
         const results = await axios({
             method: 'get',
             url: `https://api.spotify.com/v1/search`,
-            queryString,
+            params,
             headers: {
                 Authorization: 'Bearer ' + codeParam
             }
