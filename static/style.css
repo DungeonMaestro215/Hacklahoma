@@ -112,3 +112,22 @@ body, html {
     animation-duration: 100s;
     animation-iteration-count: infinite;
 }
+
+#joinCode {
+    width: 100%;
+    justify-content: center;
+}
+
+.joinCodeNum {
+    text-align: center;
+    font-size: 2.5rem;
+    width: 4rem;
+    height: 5rem;
+    margin: 1rem;
+
+    background-color: transparent;
+    color: white;
+    border: 2px solid #05ffa1;
+    box-shadow:
+    0 0 8px 4px #ff71ce;
+}

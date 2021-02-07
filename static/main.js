@@ -1,3 +1,5 @@
+const { getHeapCodeStatistics } = require("v8");
+
 let accessCode = null;
 
 window.onload = () => {
@@ -26,7 +28,12 @@ function randomCode(length) {
     for ( var i = 0; i < length; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-   return result;
+    let codes = [];
+    for (let i = 0; i < codes.length + 1; i++) {
+        codes[i] = result;
+    }
+    export {codes};
+    return result;
 }
 
 function inputCode(code) {
@@ -71,6 +78,24 @@ function renderLoginButton() {
         linkSpotify();
     });
     return;
+
+}
+
+function randomCode(length) {
+    var result= '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+   return result;
+}
+
+function inputCode(code) {
+    var code = code;
+    if (code.length != 5) {
+        return error;
+    }
 }
 
 function renderGroupButtons() {
@@ -157,4 +182,4 @@ function showUser() {
     // })
     // document.getElementById('test').addEventListener('click', communicator);
 
-
+//hi simon
