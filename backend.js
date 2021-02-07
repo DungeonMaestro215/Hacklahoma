@@ -75,6 +75,10 @@ app.post('/addSong', function(req,res) {
     
 });
 
+app.get('/getSongs', function(req,res) {
+    res.json({code: 1, songs: ['a', 'b']});
+});
+
 
 //api stuff
 app.get('/static/authenticate', async function(req,res) {
