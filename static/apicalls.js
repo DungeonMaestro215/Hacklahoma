@@ -57,7 +57,6 @@ async function searchSong(codeParam, searchTerm) {
         limit: 1
       };
     params = Object.keys(parameters).map(key => key + '=' + parameters[key]).join('&');
-    console.log(queryString);
 
     try  {
         const results = await axios({
