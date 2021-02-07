@@ -73,7 +73,7 @@ function showUser(accessCode) {
     document.getElementById("groupButtons").append(username);
 }
 
-function getUserInfo() {
+async function getUserInfo() {
     const user = await axios({
         method: 'get',
         url: 'https://api.spotify.com/v1/me',
