@@ -38,8 +38,8 @@ app.get('/getCode', function(req,res) {
         songs: []
     });
 
-    console.log('Codes: ' + codes);
-    console.log('Code: ' + code);
+    // console.log('Current Codes: ' + codes);
+    // console.log('New Code: ' + code);
 
     // res.json({ code: code });
     res.send({code});
@@ -66,7 +66,7 @@ app.get('/addSong', function(req,res) {
         res.send('Playlist does not exist');
     }
 
-    console.log(playlist);
+    console.log("Playlist: " + playlist.map(element => element.songs));
     
 });
 
