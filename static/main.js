@@ -12,7 +12,6 @@ window.onload = () => {
     let num5 = document.getElementById("num5");
     let codeSubmitButton = document.getElementById("codeSubmitButton");
 
-    let currentKey = num1;
     num1.focus();
     num1.addEventListener("keyup", function(e){
         if ((e.keyCode >= 48 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105)) {
@@ -74,7 +73,6 @@ window.onload = () => {
 
     //decides if the access code is there or not
     if (accessCode !== null) {
-        console.log(await swapToken(accessCode));
         showUser(accessCode);    
         renderGroupButtons();
 
