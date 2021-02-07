@@ -98,7 +98,7 @@ function inputCode(code) {
     }
 }
 
-function renderGroupButtons() {
+async function renderGroupButtons() {
     //gets the div to append buttons
     let buttonGroup = document.getElementById("groupButtons");
 
