@@ -112,6 +112,7 @@ body, html {
     animation-duration: 100s;
     animation-iteration-count: infinite;
     position: absolute;
+    margin-top: 10px;
 }
 
 #joinCode {
