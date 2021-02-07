@@ -111,6 +111,7 @@ body, html {
     animation-name: textHue;
     animation-duration: 100s;
     animation-iteration-count: infinite;
+    position: absolute;
 }
 
 #joinCode {
