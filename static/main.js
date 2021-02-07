@@ -1,5 +1,3 @@
-const { getHeapCodeStatistics } = require("v8");
-
 let accessCode = null;
 
 window.onload = () => {
@@ -32,7 +30,7 @@ function randomCode(length) {
     for (let i = 0; i < codes.length + 1; i++) {
         codes[i] = result;
     }
-    export {codes};
+    // export {codes};
     return result;
 }
 
