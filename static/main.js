@@ -165,7 +165,7 @@ async function createGroupEvent() {
     // Get Code
     let code = await axios({
         method: 'get',
-        url: `https://hacklahoma2.herokuapp.com/static/getCode`
+        url: `https://hacklahoma2.herokuapp.com/getCode`
     });
     console.log(code);
 }
