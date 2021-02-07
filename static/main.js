@@ -173,7 +173,7 @@ function renderSearch() {
     enterButton.addEventListener('click', async () => {
         let songData = await searchSong(userData.access_token, searchBar.value);
         console.log(songData);
-        await sendSong(theCode, searchBar.value);
+        await sendSong(theCode, songData.data.tracks.items[0].name + " by " + songData.data.tracks.items[0].album.artists[0].name);
         renderSongList(theCode);
     });
 }
