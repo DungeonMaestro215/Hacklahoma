@@ -64,7 +64,7 @@ async function searchSong(codeParam, searchTerm) {
             url: `https://api.spotify.com/v1/search`,
             data: queryString,
             headers: {
-                Authorization: codeParam
+                Authorization: 'Bearer ' + codeParam
             }
             
         });
