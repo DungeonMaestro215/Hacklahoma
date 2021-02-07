@@ -30,6 +30,7 @@ function inputCode(code) {
 }
 
 function getAccessCode() {
+<<<<<<< HEAD
     const params = new URLSearchParams(window.location.search);
 
     if (params.has('code')) {
@@ -38,6 +39,11 @@ function getAccessCode() {
         return access;
     } else {
         console.log("it wwas null bitch")
+=======
+    const params = new URLSearchParams(window.location.hash).get('code');
+    console.log(params);
+    if (params === "") {
+>>>>>>> c7b5059c800cfd9ca2b82fb30918b0fbcfbf3dd0
         return null;
     }
 
