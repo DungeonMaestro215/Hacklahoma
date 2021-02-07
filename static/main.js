@@ -119,11 +119,11 @@ function joinGroupEvent() {
     alert("join group");
 }
 
-function showUser(accessCode) {
+function showUser() {
     // Display User's name when logged in
     let username = document.createElement('div');
     username.setAttribute('id', 'user');
-    username.innerHTML = 'Logged in as: Denny';
+    username.innerHTML = `Logged in as: ${getUserInfo(accessCode).display_name}`;
     document.getElementById("container").appendChild(username);
 }
 
@@ -132,7 +132,7 @@ async function getUserInfo() {
         method: 'get',
         url: 'https://api.spotify.com/v1/me',
         headers: {
-            Authorization: 'USER THING HERE'
+            Authorization: accessCode
         }
     });
     return user;
