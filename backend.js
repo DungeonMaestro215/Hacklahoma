@@ -29,7 +29,7 @@ function randomCode(length) {
 
 app.get('/getCode', async function(req,res) {
     let code = randomCode(5);
-    while (codes.reduce((acc, val) => acc || val.code == code)) {
+    while (codes.reduce((acc, val) => acc || val.code == code), false) {
         code = randomCode(5);
     }
 
