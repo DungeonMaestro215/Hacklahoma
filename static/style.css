@@ -100,3 +100,14 @@ body, html {
     animation-duration: 100s;
     animation-iteration-count: infinite;
 }
+
+#user {
+    height: 4rem;
+    width: 20%;
+    margin-top: 6rem;
+    padding: 1rem;
+    font-size: 2rem;
+    animation-name: textHue;
+    animation-duration: 100s;
+    animation-iteration-count: infinite;
+}
