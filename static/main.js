@@ -24,5 +24,6 @@ function linkSpotify() {
     // document.getElementById("groupButtons").innerHTML = newGroupButtons;
     // document.getElementById('test').addEventListener('click', communicator);
 
-    window.location = window.location + "static/authenticate"
+    // window.location = window.location + "static/authenticate";
+    window.location = "https://hacklahoma2.herokuapp.com/static/authenticate";
 }
