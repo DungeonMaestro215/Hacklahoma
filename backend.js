@@ -54,6 +54,7 @@ app.get('/removeCode', function(req,res) {
 
 app.post('/addSong', function(req,res) {
     console.log('Homie __________________________________________________________________________');
+    console.log(Object.keys(req));
 
     let code = req.query.code;
     let song = req.query.song;
