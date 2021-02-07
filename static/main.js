@@ -46,7 +46,7 @@ function inputCode(code) {
     }
 }
 
-async function getAccessCode() {
+function getAccessCode() {
     const params = new URLSearchParams(window.location.search);
 
     if (params.has('code')) {
