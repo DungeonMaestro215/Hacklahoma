@@ -86,23 +86,6 @@ function renderLoginButton() {
 
 }
 
-function randomCode(length) {
-    var result= '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-   return result;
-}
-
-function inputCode(code) {
-    var code = code;
-    if (code.length != 5) {
-        return error;
-    }
-}
-
 function renderGroupButtons() {
     //gets the div to append buttons
     let buttonGroup = document.getElementById("groupButtons");
