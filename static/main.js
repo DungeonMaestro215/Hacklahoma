@@ -283,12 +283,18 @@ async function renderSongList(code) {
         data: {
             code: code,
         }
-    }).songs;
+    });
+
+    console.log(songs);
+
+    if (document.getElementById('songlist') == null) {
+        document.getElementById('songlist').remove();
+    }
 
     let songListDiv = document.createElement('div');
     songListDiv.setAttribute('id', 'songlist');
 
-    songs.forEach(song => {
+    songs.songs.forEach(song => {
         let songDiv = document.createElement('div');
         songDiv.setAttribute('class', 'song');
         songDiv.innerText = song;  
