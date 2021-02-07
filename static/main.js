@@ -148,8 +148,8 @@ async function createGroupEvent() {
         method: 'get',
         url: `https://hacklahoma2.herokuapp.com/getCode`
     });
-    theCode = code;
-    console.log(code);
+    theCode = code.data.code;
+    console.log(code.data.code);
 }
 
 function renderSearch() {
