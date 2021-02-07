@@ -85,6 +85,7 @@ function renderGroupButtons() {
     buttonCreate.setAttribute("id", "createGroupButton");
     buttonCreate.setAttribute("class", "groupButton btn btn-outline-dark");
     buttonCreate.innerText = "Create Group";
+    buttonCreate.addEventListener("click", createGroupEvent);
     //appends the first button
    
     overallClass1.appendChild(buttonCreate);
@@ -99,6 +100,7 @@ function renderGroupButtons() {
     buttonJoin.setAttribute("id", "joinGroupButton");
     buttonJoin.setAttribute("class", "groupButton btn btn-outline-dark");
     buttonJoin.innerText = "Join Group";
+    buttonJoin.addEventListener("click", joinGroupEvent);
 
     //appends second buttons
     overallClass2.appendChild(buttonJoin);
@@ -106,24 +108,15 @@ function renderGroupButtons() {
     return;
 }
 function linkSpotify() {
-    // let newGroupButtons = `
-    // <div class="col-12 col-md-6 p-4">
-    //     <button id="createGroupButton" class="groupButton btn btn-outline-dark">
-    //         Create Group
-    //     </button>
-    // </div>
-    // <div class="col-12 col-md-6 p-4">
-    //     <button id="joinGroupButton" class="groupButton btn btn-outline-dark">
-    //         Join Group
-    //     </button>
-    // </div>
-    // `
-
-    // document.getElementById("groupButtons").innerHTML = newGroupButtons;
-    // document.getElementById('test').addEventListener('click', communicator);
-
-    // window.location = window.location + "static/authenticate";
     window.location = "https://hacklahoma2.herokuapp.com/static/authenticate";
+}
+
+function createGroupEvent() {
+    alert("create group");
+}
+
+function joinGroupEvent() {
+    alert("join group");
 }
 
 function showUser() {
