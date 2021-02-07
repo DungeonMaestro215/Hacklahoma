@@ -257,7 +257,7 @@ async function showUser() {
 async function sendSong(code, song) {
     let response = await axios({
         method: 'get',
-        url: `https://hacklahoma2.herokuapp.com/getCode`,
+        url: `https://hacklahoma2.herokuapp.com/addSong`,
         data: {
             code: code,
             song: song
