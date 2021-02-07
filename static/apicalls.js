@@ -18,21 +18,19 @@ async function getUserInfo(accessCode) {
 
 async function getToken(codeParam) {
     console.log("Code" + codeParam)
+    let params = {
+        grant_type: "authorization_code",
+        code: codeParam, 
+        redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
+        client_id: CLIENT_ID,
+        client_secret: CLIENT_SECRET
+      };
+    let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
     try  {
-        console.log("test")
-        // console.log(atob(CLIENT_ID  + ":" + CLIENT_SECRET));
-        console.log(CLIENT_ID  + ":" + CLIENT_SECRET);
-        console.log(btoa(CLIENT_ID  + ":" + CLIENT_SECRET));
         const results = await axios({
             method: 'post',
             url: `https://accounts.spotify.com/api/token`,
-            params: {
-              grant_type: "authorization_code",
-              code: codeParam, 
-              redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
-              client_id: CLIENT_ID,
-              client_secret: CLIENT_SECRET
-            },
+            data: queryString,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             }
