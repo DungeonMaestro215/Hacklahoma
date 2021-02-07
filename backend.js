@@ -33,7 +33,7 @@ app.get('/static/getCode', async function(req,res) {
         code = randomCode(5);
     }
 
-    codes.append(code);
+    codes.push(code);
 
     console.log('Codes: ' + codes);
     console.log('Code: ' + code);
