@@ -2,6 +2,7 @@ window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
     let accessCode = getAccessCode() ; 
+    console.log("the acccess returned is " + accessCode);
     if (accessCode !== null) {
 
     } else {
@@ -30,20 +31,14 @@ function inputCode(code) {
 }
 
 function getAccessCode() {
-<<<<<<< HEAD
     const params = new URLSearchParams(window.location.search);
-
+    console.log(params.has('code'));
     if (params.has('code')) {
         let access = params.get('code');
         console.log(access);
         return access;
     } else {
         console.log("it wwas null bitch")
-=======
-    const params = new URLSearchParams(window.location.hash).get('code');
-    console.log(params);
-    if (params === "") {
->>>>>>> c7b5059c800cfd9ca2b82fb30918b0fbcfbf3dd0
         return null;
     }
 
