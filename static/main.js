@@ -15,7 +15,7 @@ window.onload = () => {
         renderGroupButtons();
 
     } else {
-        renderLoginButton
+        renderLoginButton();
     }
 }
 
