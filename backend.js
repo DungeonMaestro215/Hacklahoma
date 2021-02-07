@@ -15,7 +15,7 @@ const server = http.createServer(app);
 app.use(cors());
 
 // Generate random codes
-let codes = [];
+let codes = [{ code: 1 }];
 
 function randomCode(length) {
     var result= '';
