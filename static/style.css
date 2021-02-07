@@ -148,7 +148,8 @@ body, html {
 #songlist {
     width: 100%;
     border: 4px solid #05ffa1;
-    font-size: 3.5rem;   
+    font-size: 2.5rem;   
+    padding: 1rem;
     color: #ff71ce;
     backdrop-filter: blur(6px) grayscale(80%);
     box-shadow:
