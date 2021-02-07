@@ -112,7 +112,30 @@ function linkSpotify() {
 }
 
 function createGroupEvent() {
-    alert("create group");
+    //makes search div
+    let overallDiv = document.createElement("div")
+    overallDiv.setAttribute("id", "searchDiv");
+
+    //makes search bar
+    let searchBar = document.createElement("input");
+    searchBar.setAttribute("id", "searchBar");
+    searchBar.setAttribute("type", "text");
+    searchBar.setAttribute("placeholder", "Search for a Song");
+
+    //makes button
+    let enterButton = document.createElement("button");
+    enterButton.setAttribute("id", "searchButton");
+    enterButton.setAttribute("class", "groupButton btn btn-outline-dark");
+    enterButton.innerText = "Search";
+
+    //appends the button and search bar
+    overallDiv.appendChild(searchBar);
+    overallDiv.appendChild(enterButton);
+
+    //replaces buttons with search bar
+    document.getElementById("groupButtons").replaceWith(overallDiv);
+
+
 }
 
 function joinGroupEvent() {
