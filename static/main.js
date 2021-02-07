@@ -1,6 +1,7 @@
 let accessCode = null;
 let theName = null; 
 let userData = null;
+let theCode = null;
 
 window.onload = async () => {
     console.log("Loaded");

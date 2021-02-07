@@ -84,7 +84,10 @@ app.get('/getSongs', function(req,res) {
     // res.json({code: 1, songs: ['a', 'b']});
 
     console.log(Object.keys(req));
-    console.log(Object.keys(req.body));
+    console.log("params");
+    console.log(Object.keys(req.params));
+    console.log("query");
+    console.log(Object.keys(req.query));
 
     let code = req.body.code;
     console.log("Code: " + code);
