@@ -104,8 +104,8 @@ body, html {
 #user {
     color: #ff71ce;
     height: 4rem;
-    width: 20%;
-    border: 4px solid #05ffa1;
+    width: 60%;
+    /* border: 4px solid #05ffa1; */
     margin-top: 6rem;
     padding: 1rem;
     font-size: 1rem;
