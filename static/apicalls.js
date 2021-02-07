@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 async function getUserInfo(accessCode) {
     console.log(accessCode);
     const user = await axios({
@@ -9,4 +11,19 @@ async function getUserInfo(accessCode) {
     });
     console.log(user);
     return user;
+}
+
+async function swapToken(accessCode) {
+    const results = await axios({
+        method: 'post',
+        url: 'https://example.com/v1/swap',
+        headers: {
+            'content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+            'code': accessCode
+        }
+    });
+
+    return results;
 }

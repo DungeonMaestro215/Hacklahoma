@@ -13,6 +13,9 @@ window.onload = () => {
     //decides if the access code is there or not
     if (accessCode !== null) {
         showUser(accessCode);
+        let newData = swapToken(accessCode);
+        console.log(newData);
+    
         renderGroupButtons();
 
     } else {
