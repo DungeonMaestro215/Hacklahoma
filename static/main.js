@@ -1,5 +1,3 @@
-const { default: axios } = require("axios");
-
 let accessCode = null;
 
 window.onload = () => {
