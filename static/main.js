@@ -1,4 +1,5 @@
 let accessCode = null;
+let theName = null; 
 
 window.onload = () => {
     console.log("Loaded");
@@ -170,11 +171,12 @@ function joinGroupEvent() {
     alert("join group");
 }
 
-function showUser() {
+async function showUser() {
     // Display User's name when logged in
     let username = document.createElement('div');
     username.setAttribute('id', 'user');
-    username.innerHTML = `Logged in as: ${getUserInfo(accessCode).display_name}`;
+    theName = await getUserInfo(accessCode).data.display_name;
+    username.innerHTML = `Logged in as: ${theName}`;
     document.getElementById("container").appendChild(username);
 }
 
