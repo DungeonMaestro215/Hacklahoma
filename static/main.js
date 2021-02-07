@@ -157,7 +157,8 @@ function renderSearch() {
     overallDiv.appendChild(enterButton);
 
     //replaces buttons with search bar
-    document.getElementById("groupButtons").replaceWith(overallDiv);
+    document.getElementById("groupButtons").remove();
+    document.getElementById("container").appendChild(overallDiv);
 
     enterButton.addEventListener('click', () => sendSong(theCode, searchBar.value));
 }
@@ -178,7 +179,7 @@ function joinGroupEvent() {
     </div>
     `
     // document.getElementById("groupButtons").remove();
-    document.getElementById("groupButtons").innerHTML = joinCodeHTML;
+    document.getElementById("container").innerHTML = joinCodeHTML;
 
     let num1 = document.getElementById("num1");
     let num2 = document.getElementById("num2");
