@@ -3,6 +3,19 @@ let accessCode = null;
 window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
+<<<<<<< HEAD
+=======
+    
+    // document.getElementById("linkSpotifyButton").addEventListener("click", function() {
+    //     linkSpotify();
+    // });
+    let accessCode = getAccessCode() ; 
+    console.log("the acccess returned is \n" + accessCode);
+    if (accessCode !== null) {
+        showUser(accessCode);
+    } else {
+        let groupButtonsDiv = document.getElementById("groupButtons");
+>>>>>>> 3f3b71ab0aab8f222f660e40da87ab338bca36b7
 
     //attempts to get the accessCode
     accessCode = getAccessCode() ; 
@@ -127,12 +140,10 @@ function linkSpotify() {
 
 function showUser(accessCode) {
     // Display User's name when logged in
-    let username = `
-    <div id="user" class="groupButton">
-        Logged in as: Denny
-    </div>
-    `;
-    document.getElementById("groupButtons").append(username);
+    let username = document.createElement('div');
+    username.setAttribute('id', 'user');
+    username.innerHTML = 'Logged in as: Denny';
+    document.getElementById("container").appendChild(username);
 }
 
 async function getUserInfo() {
