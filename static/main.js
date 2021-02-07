@@ -52,20 +52,15 @@ async function getAccessCode() {
         let access = params.get('code');
         //return access;
         //time to get tokens
-        let tokenData = await getUserToken(access);
-        console.log("token tdata" + tokenData);
-        userData = tokenData;
+        let tokenData = await getToken(access);
+        userData = tokenData.data;
+        console.log(userData);
         return access;
     } else {
         return null;
     }
     // let data = await getToken();
     // return data.data.access_token;
-
-}
-async function getUserToken(code) {
-    let results = await getToken(code) ;
-    return results;
 }
 
 function renderLoginButton() {
