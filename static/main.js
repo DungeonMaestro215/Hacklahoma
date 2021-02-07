@@ -10,8 +10,6 @@ window.onload = async () => {
 
     //attempts to get the accessCode
     accessCode =  await getAccessCode() ; 
-    
-    console.log(userData);
 
     //decides if the access code is there or not
     if (accessCode !== null) {
@@ -256,7 +254,7 @@ async function showUser() {
     // Display User's name when logged in
     let username = document.createElement('div');
     username.setAttribute('id', 'user');
-    let response = await getUserInfo(accessCode);
+    let response = await getUserInfo(userData.access_token);
     theName = response.data.display_name;
 
     username.innerHTML = `Logged in as: ${theName}`;
