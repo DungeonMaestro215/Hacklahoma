@@ -5,7 +5,7 @@ async function getUserInfo(accessCode) {
         url: 'https://api.spotify.com/v1/me',
         headers: {
             //'Authorization': 'Bearer ' + accessCode
-            Authorization: 'Bearer ' + (accessCode).toString('base64') 
+            'Authorization': 'Bearer ' + (accessCode).toString('base64') 
         }
     });
     console.log(user);
