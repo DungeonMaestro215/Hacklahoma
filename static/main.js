@@ -185,7 +185,7 @@ function joinGroupEvent() {
     </div>
     `
     document.getElementById("groupButtons").remove();
-    document.getElementById("container").innerHTML(joinCodeHTML);
+    document.getElementById("container").innerHTML = joinCodeHTML;
 
     let num1 = document.getElementById("num1");
     let num2 = document.getElementById("num2");
