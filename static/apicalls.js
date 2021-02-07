@@ -1,5 +1,3 @@
-const axios = require('axios').default;
-
 async function getUserInfo(accessCode) {
     const user = await axios({
         method: 'get',
