@@ -283,7 +283,11 @@ async function renderSongList(code) {
         data: {
             code: code,
         }
-    }).data.songs;
+    });
+
+    console.log(songs);
+    console.log(songs.data);
+    console.log(songs.data.songs);
 
     if (document.getElementById('songlist') == null) {
         document.getElementById('songlist').remove();
