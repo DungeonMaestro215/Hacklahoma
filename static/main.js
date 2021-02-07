@@ -2,9 +2,9 @@ window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
     
-    document.getElementById("linkSpotifyButton").addEventListener("click", function() {
-        linkSpotify();
-    });
+    // document.getElementById("linkSpotifyButton").addEventListener("click", function() {
+    //     linkSpotify();
+    // });
 }
 
 function linkSpotify() {
