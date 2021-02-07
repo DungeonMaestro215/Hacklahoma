@@ -21,6 +21,7 @@ async function getToken(code) {
     try  {
         console.log("test")
         // console.log(atob(CLIENT_ID  + ":" + CLIENT_SECRET));
+        console.log(CLIENT_ID  + ":" + CLIENT_SECRET);
         console.log(btoa(CLIENT_ID  + ":" + CLIENT_SECRET));
         const results = await axios({
             method: 'post',
@@ -32,7 +33,7 @@ async function getToken(code) {
             },
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
-              'Authorization': 'Basic ' + btoa(CLIENT_ID  + ":" + CLIENT_SECRET)
+              'Authorization': btoa(CLIENT_ID  + ":" + CLIENT_SECRET)
             }
             
         });
