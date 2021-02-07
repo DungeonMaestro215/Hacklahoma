@@ -1,5 +1,6 @@
 let accessCode = null;
 let theName = null; 
+let theCode = null;
 
 window.onload = () => {
     console.log("Loaded");
@@ -141,6 +142,17 @@ function linkSpotify() {
 }
 
 async function createGroupEvent() {
+    renderSearch();
+    // Get Code
+    let code = await axios({
+        method: 'get',
+        url: `https://hacklahoma2.herokuapp.com/getCode`
+    });
+    theCode = code;
+    console.log(code);
+}
+
+function renderSearch() {
     //makes search div
     let overallDiv = document.createElement("div")
     overallDiv.setAttribute("id", "searchDiv");
@@ -164,12 +176,7 @@ async function createGroupEvent() {
     //replaces buttons with search bar
     document.getElementById("groupButtons").replaceWith(overallDiv);
 
-    // Get Code
-    let code = await axios({
-        method: 'get',
-        url: `https://hacklahoma2.herokuapp.com/getCode`
-    });
-    console.log(code);
+    enterButton.addEventListener('click', () => sendSong(theCode, searchBar.value));
 }
 
 function joinGroupEvent() {
@@ -247,7 +254,8 @@ function joinGroupEvent() {
     codeSubmitButton.addEventListener("click", function(e){
         let code = (num1.value + num2.value + num3.value + num4.value + num5.value).toUpperCase();
         if (code.length === 5) {
-            submitGroupCode(code);
+            renderSearch();
+            theCode = code;
         }
     });
 }
@@ -263,8 +271,19 @@ async function showUser() {
     document.getElementById("container").appendChild(username);
 }
 
-function submitGroupCode(code) {
-    console.log(code);
+async function sendSong(code, song) {
+    let response = await axios({
+        method: 'get',
+        url: `https://hacklahoma2.herokuapp.com/getCode`,
+        data: {
+            code: code,
+            song: song
+        }
+    });
+
+    console.log('Code: ' + code);
+    console.log('Song: ' + song);
+    console.log(response);
 }
 
     // document.getElementById("groupButtons").innerHTML = newGroupButtons;
