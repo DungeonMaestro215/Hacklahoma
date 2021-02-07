@@ -278,16 +278,15 @@ async function sendSong(code, song) {
 }
 
 async function renderSongList(code) {
+    console.log("It's right here homie: " + code)
     let songs = await axios({
         method: 'get',
         url: `https://hacklahoma2.herokuapp.com/getSongs`,
-        data: {
+        params: {
             code: code,
         }
     });
-
-    console.log(songs);
-    console.log(songs.data);
+    
     console.log(songs.data.songs);
 
     if (document.getElementById('songlist') != null) {
