@@ -2,9 +2,9 @@ async function getUserInfo(accessCode) {
     const user = await axios({
         method: 'get',
         url: 'https://api.spotify.com/v1/me',
-        headers: {
+        header: {
             // Authorization: 'Bearer ' + accessCode
-            Authorization: 'Bearer ' + Buffer.from(accessCode).toString('base64') // client id and secret from env
+            Authorization: 'Bearer ' + Buffer.from(accessCode).toString('base64') 
         }
     });
     console.log(user);
