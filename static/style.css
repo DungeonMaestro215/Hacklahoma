@@ -5,9 +5,6 @@ body, html {
 
 .container {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .bg {
@@ -31,12 +28,43 @@ body, html {
     background-repeat: no-repeat; 
     background-size: cover;
 
-    filter: grayscale(80%);
+    animation-name: backgroundHue;
+    animation-duration: 100s;
+    animation-iteration-count: infinite;
 }
 
+@keyframes backgroundHue {
+    0% {
+        filter: hue-rotate(0) grayscale(20%);
+    }
+    50% {
+        filter: hue-rotate(360deg) grayscale(20%);
+    }
+    100% {
+        filter: hue-rotate(0) grayscale(20%);
+        
+    }
+  }
+
+@keyframes textHue {
+    0% {
+        filter: hue-rotate(0);
+    }
+    50% {
+        filter: hue-rotate(360deg);
+    }
+    100% {
+        filter: hue-rotate(0);
+        
+    }
+  }
+
 #groupButtons {
+    height: 100%;
     width: 100%;
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .groupButton {
@@ -45,9 +73,12 @@ body, html {
     border: 4px solid #05ffa1;
     font-size: 3.5rem;   
     color: #ff71ce;
-    backdrop-filter: blur(5px) grayscale(50%);
+    backdrop-filter: blur(6px) grayscale(80%);
     box-shadow:
     0 0 10px 5px #ff71ce;
+    animation-name: textHue;
+    animation-duration: 100s;
+    animation-iteration-count: infinite;
 }
 
 .groupButton:hover {
@@ -57,4 +88,15 @@ body, html {
     box-shadow:
     0 0 15px 10px #ff71ce;
     transition: linear .1s;
+}
+
+#searchBar {
+    height: 4rem;
+    width: 100%;
+    margin-top: 6rem;
+    padding: 1rem;
+    font-size: 2rem;
+    animation-name: textHue;
+    animation-duration: 100s;
+    animation-iteration-count: infinite;
 }

@@ -1,11 +1,31 @@
 window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
+<<<<<<< HEAD
+    
+    // document.getElementById("linkSpotifyButton").addEventListener("click", function() {
+    //     linkSpotify();
+    // });
+=======
     let accessCode = getAccessCode() ; 
     console.log("the acccess returned is \n" + accessCode);
     if (accessCode !== null) {
         showUser(accessCode);
     } else {
+        let groupButtonsDiv = document.getElementById("groupButtons");
+
+        let loginButtonDiv = document.createElement("div");
+        loginButtonDiv.setAttribute("class", "col- 12 col-md-6 p-4")
+
+        let button = document.createElement("button");
+        button.setAttribute("id", "linkSpotifyButton");
+        button.setAttribute("class", "groupButton btn btn-outline-dark");
+        button.innerText = "Link Spotify :)"
+
+        loginButtonDiv.appendChild(button);
+        groupButtonsDiv.appendChild(loginButtonDiv);
+        
+
         document.getElementById("linkSpotifyButton").addEventListener("click", function() {
             linkSpotify();
         });
@@ -27,6 +47,7 @@ function inputCode(code) {
     if (code.length != 5) {
         return error;
     }
+>>>>>>> b8ffd87fa9682fc445624e7e1687196ef39a1039
 }
 
 function getAccessCode() {
