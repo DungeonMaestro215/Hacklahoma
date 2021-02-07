@@ -1,4 +1,3 @@
-const { default: axios } = require("axios");
 
 async function getUserInfo(accessCode) {
     console.log(accessCode);
