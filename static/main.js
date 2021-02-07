@@ -1,9 +1,6 @@
 let accessCode = null;
 let theName = null; 
 
-const {getUserInfo} = require('./apicalls.js') ;
-
-
 window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
