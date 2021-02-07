@@ -30,12 +30,17 @@ function inputCode(code) {
 }
 
 function getAccessCode() {
-    const params = new URLSearchParams(url.search).get('code');
-    console.log(params);
-    if (params === "") {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.has('code')) {
+        let access = params.get('code');
+        console.log(access);
+        return access;
+    } else {
+        console.log("it wwas null bitch")
         return null;
     }
-    return params;
+
 }
 function linkSpotify() {
     // let newGroupButtons = `
