@@ -72,7 +72,7 @@ function randomCode(length) {
    return result;
 }
 
-app.get('/getCode', function(req,res) {
+app.get('/static/getCode', function(req,res) {
     let code = randomCode(5);
     while (codes.includes(code)) {
         code = randomCode(5);
@@ -81,7 +81,8 @@ app.get('/getCode', function(req,res) {
     console.log('Codes: ' + codes);
     console.log('Code: ' + code);
 
-    res.json({ code: code });
+    // res.json({ code: code });
+    res.send({code});
 });
 
 // Start listening
