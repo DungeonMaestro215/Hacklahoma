@@ -84,7 +84,7 @@ function showUser(accessCode) {
     let username = document.createElement('div');
     username.setAttribute('id', 'user');
     username.innerHTML = 'Logged in as: Denny';
-    document.getElementById("groupButtons").append(username);
+    document.getElementById("container").appendChild(username);
 }
 
 async function getUserInfo() {
