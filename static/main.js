@@ -98,7 +98,7 @@ function inputCode(code) {
     }
 }
 
-async function renderGroupButtons() {
+function renderGroupButtons() {
     //gets the div to append buttons
     let buttonGroup = document.getElementById("groupButtons");
 
@@ -136,7 +136,7 @@ function linkSpotify() {
     window.location = "https://hacklahoma2.herokuapp.com/static/authenticate";
 }
 
-function createGroupEvent() {
+async function createGroupEvent() {
     //makes search div
     let overallDiv = document.createElement("div")
     overallDiv.setAttribute("id", "searchDiv");
