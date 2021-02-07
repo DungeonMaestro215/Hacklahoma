@@ -2,15 +2,14 @@ window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
     let accessCode = getAccessCode() ; 
-    console.log("the acccess returned is " + accessCode);
+    console.log("the acccess returned is \n" + accessCode);
     if (accessCode !== null) {
 
     } else {
-    
-    document.getElementById("linkSpotifyButton").addEventListener("click", function() {
-        linkSpotify();
-    });
-
+        document.getElementById("linkSpotifyButton").addEventListener("click", function() {
+            linkSpotify();
+        });
+    }
 }
 
 function randomCode(length) {
@@ -32,13 +31,11 @@ function inputCode(code) {
 
 function getAccessCode() {
     const params = new URLSearchParams(window.location.search);
-    console.log(params.has('code'));
+
     if (params.has('code')) {
         let access = params.get('code');
-        console.log(access);
         return access;
     } else {
-        console.log("it wwas null bitch")
         return null;
     }
 
@@ -69,5 +66,5 @@ function linkSpotify() {
     //     inputCode(code);
     // })
     // document.getElementById('test').addEventListener('click', communicator);
-}
+
 
