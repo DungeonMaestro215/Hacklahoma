@@ -63,11 +63,9 @@ function linkSpotify() {
 
 function showUser(accessCode) {
     // Display User's name when logged in
-    let username = `
-    <div id="user" class="groupButton">
-        Logged in as: Denny
-    </div>
-    `;
+    let username = document.createElement('div');
+    username.setAttribute('id', 'user');
+    username.innerHTML = 'Logged in as: Denny';
     document.getElementById("groupButtons").append(username);
 }
 
