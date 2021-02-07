@@ -1,12 +1,24 @@
 window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
+    let accessCode = getAccessCode() ; 
+    if (accessCode !== null) {
+
+    } else {
     
-    document.getElementById("linkSpotifyButton").addEventListener("click", function() {
-        linkSpotify();
-    });
+        document.getElementById("linkSpotifyButton").addEventListener("click", function() {
+            linkSpotify();
+        });
+    }
 }
 
+function getAccessCode() {
+    const params = new URLSearchParams(url.search).get('code');
+    if (params === "") {
+        return null;
+    }
+    return params;
+}
 function linkSpotify() {
     // let newGroupButtons = `
     // <div class="col-12 col-md-6 p-4">
