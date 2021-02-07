@@ -83,6 +83,7 @@ app.post('/addSong', function(req,res) {
 app.get('/getSongs', function(req,res) {
     // res.json({code: 1, songs: ['a', 'b']});
 
+    console.log(req);
     console.log(Object.keys(req));
     console.log("params");
     console.log(Object.keys(req.params));
