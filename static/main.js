@@ -1,12 +1,10 @@
 window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
-<<<<<<< HEAD
     
     // document.getElementById("linkSpotifyButton").addEventListener("click", function() {
     //     linkSpotify();
     // });
-=======
     let accessCode = getAccessCode() ; 
     console.log("the acccess returned is \n" + accessCode);
     if (accessCode !== null) {
@@ -47,7 +45,6 @@ function inputCode(code) {
     if (code.length != 5) {
         return error;
     }
->>>>>>> b8ffd87fa9682fc445624e7e1687196ef39a1039
 }
 
 function getAccessCode() {
