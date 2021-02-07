@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 let accessCode = null;
 
 window.onload = () => {
@@ -158,7 +160,12 @@ function createGroupEvent() {
     //replaces buttons with search bar
     document.getElementById("groupButtons").replaceWith(overallDiv);
 
-
+    // Get Code
+    let code = await axios({
+        method: 'get',
+        url: `https://hacklahoma2.herokuapp.com/static/getCode`
+    });
+    console.log(code);
 }
 
 function joinGroupEvent() {
