@@ -52,7 +52,7 @@ async function getAccessCode() {
         let access = params.get('code');
         //return access;
         //time to get tokens
-        let tokenData = await getUserToken(code);
+        let tokenData = await getUserToken(access);
         userData = tokenData;
         return access;
     } else {
