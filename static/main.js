@@ -164,7 +164,8 @@ function renderSearch() {
     overallDiv.appendChild(enterButton);
 
     //replaces buttons with search bar
-    document.getElementById("container").innerHTML = overallDiv;
+    document.getElementById("container").innerHTML = '';
+    document.getElementById("container").appendChild(overallDiv);
 
     enterButton.addEventListener('click', () => sendSong(theCode, searchBar.value));
 }
