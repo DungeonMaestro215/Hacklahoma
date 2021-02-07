@@ -42,3 +42,27 @@ async function getToken(codeParam) {
         return error;
     }
 }
+
+async function searchSong(codeParam, searchTerm) {
+    let params = {
+        code: codeParam, 
+        q: searchTerm,
+        type: 'track',
+        limit: 1
+      };
+    let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+
+    try  {
+        const results = await axios({
+            method: 'get',
+            url: `https://api.spotify.com/v1/search`,
+            data: queryString
+            
+        });
+        return results;
+    }
+    catch (error) {
+        return error;
+    }
+
+}
