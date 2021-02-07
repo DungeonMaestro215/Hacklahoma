@@ -6,5 +6,6 @@ async function getUserInfo(accessCode) {
             Authorization: accessCode
         }
     });
+    console.log(user);
     return user;
 }
