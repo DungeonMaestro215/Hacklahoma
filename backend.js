@@ -53,10 +53,21 @@ app.get('/removeCode', function(req,res) {
 });
 
 app.get('/addSong', function(req,res) {
+    console.log(req);
+
     let code = req.data.code;
     let song = req.data.song;
 
-    codes.find(element => element.code == code).songs.push(song);
+    let playlist = codes.find(element => element.code == code);
+    if (playlist) {
+        playlist.songs.push(song);
+        res.send('Song added to playlist');
+    } else {
+        res.send('Playlist does not exist');
+    }
+
+    console.log(playlist);
+    
 });
 
 
