@@ -58,8 +58,11 @@ app.post('/addSong', function(req,res) {
     let code = req.query.code;
     let song = req.query.song;
 
+    console.log('Code: ' + code);
+    console.log('Song: ' + song);
+    console.log('Codes: ' + codes);
     let playlist = codes.find(element => element.code == code);
-    if (playlist) {
+    if (playlist != undefined) {
         playlist.songs.push(song);
         res.send('Song added to playlist');
     } else {
