@@ -43,6 +43,12 @@ async function getToken(codeParam) {
     }
 }
 
+/**FORMAT FOR SAVING THE SONGS 
+ * spotify:track:4iV5W9uYEdYUVa79Axb7Rh
+ * store each song in an array in this format of the uri
+ * spotify:track:id
+ * basically save the URI not the id
+ */
 async function searchSong(codeParam, searchTerm) {
     let params = {
         code: codeParam, 
@@ -65,4 +71,82 @@ async function searchSong(codeParam, searchTerm) {
         return error;
     }
 
+}
+
+async function addSongsToPlaylist(codeParam, songList, playlistID) {
+    let params = {
+        code: codeParam,
+        uris: songList //string array of spotify uri's https://developer.spotify.com/documentation/web-api/reference/#endpoint-add-tracks-to-playlist
+                /** [ "spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M", ... ] */
+    };
+    let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+
+    try  {
+        const results = await axios({
+            method: 'post',
+            url: `https://api.spotify.com/v1/playlists/`+playlistID+`/tracks`,
+            data: queryString,
+            headers: {
+                'Content-Type': 'application/json',
+              }
+            
+        });
+        return results;
+    }
+    catch (error) {
+        return error;
+    }
+}
+
+
+//MAKE SURE TO SAVE THE RESPONSE WITH THE PLAYLIST ID!!!!!
+// we need it to add songs and for other users to follow it
+async function createPlaylist(codeParam, userID, playlistName) {
+    let params = {
+        code: codeParam,
+        name: playlistName,
+        public: true, 
+      };
+    let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+
+    try  {
+        const results = await axios({
+            method: 'post',
+            url: `https://api.spotify.com/v1/users/`+userID+`/playlists`,
+            data: queryString,
+            headers: {
+                'Content-Type': 'application/json',
+              }
+            
+        });
+        return results;
+    }
+    catch (error) {
+        return error;
+    }
+}
+
+
+
+async function followPlaylist(codeParam, playlistID) {
+    let params = {
+        code: codeParam, 
+      };
+    let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+
+    try  {
+        const results = await axios({
+            method: 'put',
+            url: `https://api.spotify.com/v1/playlists/`+ playlistID+ `/followers`,
+            data: queryString,
+            headers: {
+                'Content-Type': 'application/json',
+              }
+            
+        });
+        return results;
+    }
+    catch (error) {
+        return error;
+    }
 }
