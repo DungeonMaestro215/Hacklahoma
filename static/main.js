@@ -277,6 +277,16 @@ async function sendSong(code, song) {
     console.log(response);
 }
 
+async function renderSongList(code) {
+    let songs = await axios({
+        method: 'post',
+        url: `https://hacklahoma2.herokuapp.com/addSong`,
+        data: {
+            code: code,
+        }
+    }).songs;
+}
+
     // document.getElementById("groupButtons").innerHTML = newGroupButtons;
     // document.getElementById("createGroupButton").addEventListener("click", function() {alert("Your code is: " + randomCode(5));})
     // document.getElementById("joinGroupButton").addEventListener('click', function() {
