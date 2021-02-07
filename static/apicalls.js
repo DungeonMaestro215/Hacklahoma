@@ -18,6 +18,8 @@ async function getUserInfo(accessCode) {
 
 async function getToken(code) {
     try  {
+        console.log(atob(CLIENT_ID  + ":" + CLIENT_SECRET));
+        console.log(btoa(CLIENT_ID  + ":" + CLIENT_SECRET));
         const results = await axios({
             method: 'post',
             url: `https://accounts.spotify.com/api/token`,
