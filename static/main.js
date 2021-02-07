@@ -8,8 +8,8 @@ window.onload = () => {
     
 
     //attempts to get the accessCode
-    accessCode = getAccessCode() ; 
-    console.log(accessCode);
+    accessCode = await getAccessCode() ; 
+    
     console.log("the acccess returned is \n" + accessCode);
 
 
