@@ -66,9 +66,10 @@ app.post('/addSong', function(req,res) {
     console.log('Song: ' + song);
     console.log('Codes: ' + codes);
     let playlist = codes.find(element => element.code == code);
+    console.log(playlist);
     if (playlist != undefined) {
-        codes.find(element => element.code == code).songs.push(song);
-        // playlist.songs.unshift(song);
+        // codes.find(element => element.code == code).songs.push(song);
+        playlist.songs.unshift(song);
         // playlist.songs.push(song);
         // res.send('Song added to playlist');
         res.json(playlist);
@@ -85,6 +86,7 @@ app.get('/getSongs', function(req,res) {
     let code = req.body.code;
 
     let playlist = codes.find(element => element.code == code);
+    console.log(playlist);
     if (playlist != undefined) {
         res.json(playlist);
     } else {
