@@ -9,6 +9,7 @@ window.onload = () => {
 
     //attempts to get the accessCode
     accessCode = getAccessCode() ; 
+    console.log(accessCode);
     console.log("the acccess returned is \n" + accessCode);
 
 
@@ -44,15 +45,17 @@ function inputCode(code) {
     }
 }
 
-function getAccessCode() {
-    const params = new URLSearchParams(window.location.search);
+async function getAccessCode() {
+    // const params = new URLSearchParams(window.location.search);
 
-    if (params.has('code')) {
-        let access = params.get('code');
-        return access;
-    } else {
-        return null;
-    }
+    // if (params.has('code')) {
+    //     let access = params.get('code');
+    //     return access;
+    // } else {
+    //     return null;
+    // }
+    let data = await getToken();
+    return data.data.access_token;
 
 }
 

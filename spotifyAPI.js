@@ -56,7 +56,7 @@ async function getToken() {
             data: qs.stringify({
               grant_type: "authorization_code",
               code: '/authorize endpoint', 
-              redirect_uri: 'https://wbucher3.github.io/background.html',
+              redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
             }),
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
