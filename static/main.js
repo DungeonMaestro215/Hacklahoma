@@ -14,6 +14,7 @@ window.onload = () => {
 
 function getAccessCode() {
     const params = new URLSearchParams(url.search).get('code');
+    console.log(params);
     if (params === "") {
         return null;
     }
