@@ -16,8 +16,8 @@ async function getUserInfo(accessCode) {
     return user;
 }
 
-async function getToken(code) {
-    console.log("Code" + code)
+async function getToken(codeParam) {
+    console.log("Code" + codeParam)
     try  {
         console.log("test")
         // console.log(atob(CLIENT_ID  + ":" + CLIENT_SECRET));
@@ -28,7 +28,7 @@ async function getToken(code) {
             url: `https://accounts.spotify.com/api/token`,
             data: {
               grant_type: "authorization_code",
-              code: code, 
+              code: codeParam, 
               redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
             },
             headers: {
