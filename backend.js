@@ -56,8 +56,8 @@ app.post('/addSong', function(req,res) {
     console.log('Homie __________________________________________________________________________');
     console.log(Object.keys(req));
 
-    let code = req.query.code;
-    let song = req.query.song;
+    let code = req.body.code;
+    let song = req.body.song;
 
     console.log('Code: ' + code);
     console.log('Song: ' + song);
