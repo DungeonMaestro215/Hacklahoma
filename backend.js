@@ -91,7 +91,8 @@ app.get('/getSongs', function(req,res) {
     console.log(Object.keys(req.query));
 
     let code = req.query;
-    console.log("Code: " + code);
+    console.log("Code: ");
+    console.log(code)
 
     let playlist = codes.find(element => element.code == code);
     console.log(playlist);
