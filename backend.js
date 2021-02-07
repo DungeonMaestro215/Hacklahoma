@@ -84,6 +84,7 @@ app.get('/getSongs', function(req,res) {
     // res.json({code: 1, songs: ['a', 'b']});
 
     let code = req.body.code;
+    console.log("Code: " + code);
 
     let playlist = codes.find(element => element.code == code);
     console.log(playlist);
