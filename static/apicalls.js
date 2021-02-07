@@ -62,7 +62,7 @@ async function searchSong(codeParam, searchTerm) {
         const results = await axios({
             method: 'get',
             url: `https://api.spotify.com/v1/search`,
-            data: queryString,
+            params: queryString,
             headers: {
                 Authorization: 'Bearer ' + codeParam
             }
