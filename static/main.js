@@ -286,7 +286,7 @@ async function sendSong(code, song) {
 async function renderSongList(code) {
     let songs = await axios({
         method: 'post',
-        url: `https://hacklahoma2.herokuapp.com/addSong`,
+        url: `https://hacklahoma2.herokuapp.com/getSongs`,
         data: {
             code: code,
         }
