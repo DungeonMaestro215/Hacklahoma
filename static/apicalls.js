@@ -28,7 +28,7 @@ async function getToken(code) {
             },
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
-              'Authorization': (CLIENT_ID, CLIENT_SECRET)
+              'Authorization': 'Basic ' + btoa(CLIENT_ID  + ":" + CLIENT_SECRET)
             }
             
         });
