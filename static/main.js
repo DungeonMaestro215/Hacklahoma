@@ -3,19 +3,6 @@ let accessCode = null;
 window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
-<<<<<<< HEAD
-=======
-    
-    // document.getElementById("linkSpotifyButton").addEventListener("click", function() {
-    //     linkSpotify();
-    // });
-    let accessCode = getAccessCode() ; 
-    console.log("the acccess returned is \n" + accessCode);
-    if (accessCode !== null) {
-        showUser(accessCode);
-    } else {
-        let groupButtonsDiv = document.getElementById("groupButtons");
->>>>>>> 3f3b71ab0aab8f222f660e40da87ab338bca36b7
 
     //attempts to get the accessCode
     accessCode = getAccessCode() ; 
