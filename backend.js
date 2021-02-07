@@ -79,7 +79,7 @@ app.post('/addSong', function(req,res) {
 });
 
 app.get('/getSongs', function(req,res) {
-    res.json({code: 1, songs: ['a', 'b']});
+    // res.json({code: 1, songs: ['a', 'b']});
 
     let code = req.body.code;
 
