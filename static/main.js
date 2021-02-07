@@ -141,12 +141,12 @@ async function createGroupEvent() {
 
 function renderSearch() {
     //makes search div
-    let overallDiv = document.createElement("div")
+    let overallDiv = document.createElement("h1")
     overallDiv.setAttribute("id", "searchDiv");
 
     //makes code
     let codeLabel = document.createElement("div") ;
-    codeLabel.setAttribute('id', 'genericText');
+    codeLabel.setAttribute('class', 'genericText');
     codeLabel.innerText = theCode;
 
     //makes search bar
@@ -262,7 +262,7 @@ function joinGroupEvent() {
 async function showUser() {
     // Display User's name when logged in
     let username = document.createElement('div');
-    username.setAttribute('id', 'genericText');
+    username.setAttribute('class', 'genericText');
     let response = await getUserInfo(userData.access_token);
     theName = response.data.display_name;
 
