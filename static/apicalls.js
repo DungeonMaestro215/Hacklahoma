@@ -16,23 +16,25 @@ async function getUserInfo(accessCode) {
     return user;
 }
 
-async function getToken(code) {
+async function getToken(codeParam) {
+    console.log("Code" + codeParam)
     try  {
+        console.log("test")
+        // console.log(atob(CLIENT_ID  + ":" + CLIENT_SECRET));
+        console.log(CLIENT_ID  + ":" + CLIENT_SECRET);
+        console.log(btoa(CLIENT_ID  + ":" + CLIENT_SECRET));
         const results = await axios({
             method: 'post',
             url: `https://accounts.spotify.com/api/token`,
-            data: {
-              grant_type: "authorization_code",
-              code: code, 
-              redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
-            },
             params: {
-                client_id: CLIENT_ID,
-                client_secret: CLIENT_SECRET
-              },
+              grant_type: "authorization_code",
+              code: codeParam, 
+              redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
+              client_id: CLIENT_ID,
+              client_secret: CLIENT_SECRET
+            },
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
-              //'Authorization': 'Basic ' + (CLIENT_ID + ':' + CLIENT_SECRET).toString('base64') // client id and secret from env
             }
             
         });
