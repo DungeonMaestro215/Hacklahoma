@@ -25,12 +25,11 @@ async function getToken(code) {
               grant_type: "authorization_code",
               code: code, 
               redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
-              params: {
+            },
+            params: {
                 client_id: CLIENT_ID,
                 client_secret: CLIENT_SECRET
-              }
-             
-            },
+              },
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
               //'Authorization': 'Basic ' + (CLIENT_ID + ':' + CLIENT_SECRET).toString('base64') // client id and secret from env
