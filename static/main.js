@@ -1,5 +1,3 @@
-const { getHeapCodeStatistics } = require("v8");
-
 let accessCode = null;
 
 window.onload = () => {
