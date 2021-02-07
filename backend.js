@@ -52,8 +52,8 @@ app.get('/removeCode', function(req,res) {
     }
 });
 
-app.get('/addSong', function(req,res) {
-    console.log(req);
+app.post('/addSong', function(req,res) {
+    console.log('Homie __________________________________________________________________________');
 
     let code = req.data.code;
     let song = req.data.song;
