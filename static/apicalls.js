@@ -1,8 +1,9 @@
 async function getUserInfo(accessCode) {
+    console.log(accessCode);
     const user = await axios({
         method: 'get',
         url: 'https://api.spotify.com/v1/me',
-        header: {
+        headers: {
             Authorization: 'Bearer ' + accessCode
             // Authorization: 'Bearer ' + Buffer.from(accessCode).toString('base64') 
         }
