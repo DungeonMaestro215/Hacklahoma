@@ -101,7 +101,7 @@ body, html {
     animation-iteration-count: infinite;
 }
 
-#user {
+.genericText {
     color: #ff71ce;
     height: 4rem;
     width: 60%;

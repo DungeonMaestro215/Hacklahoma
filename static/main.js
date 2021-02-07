@@ -127,7 +127,7 @@ function linkSpotify() {
 }
 
 async function createGroupEvent() {
-    renderSearch();
+    
     // Get Code
     let code = await axios({
         method: 'get',
@@ -135,12 +135,19 @@ async function createGroupEvent() {
     });
     theCode = code.data.code;
     console.log(code.data.code);
+    //moved this below so i could include the code
+    renderSearch();
 }
 
 function renderSearch() {
     //makes search div
     let overallDiv = document.createElement("div")
     overallDiv.setAttribute("id", "searchDiv");
+
+    //makes code
+    let codeLabel = document.createElement("div") ;
+    codeLabel.setAttribute('id', 'genericText');
+    codeLabel.innerText = theCode;
 
     //makes search bar
     let searchBar = document.createElement("input");
@@ -155,6 +162,7 @@ function renderSearch() {
     enterButton.innerText = "Search";
 
     //appends the button and search bar
+    overallDiv.appendChild(codeLabel)
     overallDiv.appendChild(searchBar);
     overallDiv.appendChild(enterButton);
 
@@ -254,7 +262,7 @@ function joinGroupEvent() {
 async function showUser() {
     // Display User's name when logged in
     let username = document.createElement('div');
-    username.setAttribute('id', 'user');
+    username.setAttribute('id', 'genericText');
     let response = await getUserInfo(userData.access_token);
     theName = response.data.display_name;
 
