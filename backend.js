@@ -55,8 +55,8 @@ app.get('/removeCode', function(req,res) {
 app.post('/addSong', function(req,res) {
     console.log('Homie __________________________________________________________________________');
 
-    let code = req.data.code;
-    let song = req.data.song;
+    let code = req.query.code;
+    let song = req.query.song;
 
     let playlist = codes.find(element => element.code == code);
     if (playlist) {
