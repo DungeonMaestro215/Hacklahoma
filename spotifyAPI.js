@@ -37,7 +37,7 @@ async function getAuth() {
         // })
         const results = {client_id: CLIENT_ID,
             response_type: 'code',
-            redirect_uri: 'https://dungeonmaestro215.github.io/static/'}
+            redirect_uri: 'https://hacklahoma2.herokuapp.com/'}
         return results;
 
 
