@@ -6,6 +6,20 @@ window.onload = () => {
     if (accessCode !== null) {
 
     } else {
+        let groupButtonsDiv = document.getElementById("groupButtons");
+
+        let loginButtonDiv = document.createElement("div");
+        loginButtonDiv.setAttribute("class", "col- 12 col-md-6 p-4")
+
+        let button = document.createElement("button");
+        button.setAttribute("id", "linkSpotifyButton");
+        button.setAttribute("class", "groupButton btn btn-outline-dark");
+        button.innerText = "Link Spotify :)"
+
+        loginButtonDiv.appendChild(button);
+        groupButtonsDiv.appendChild(loginButtonDiv);
+        
+
         document.getElementById("linkSpotifyButton").addEventListener("click", function() {
             linkSpotify();
         });
