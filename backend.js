@@ -34,7 +34,8 @@ app.get('/getCode', function(req,res) {
     }
 
     codes.push({ 
-        code: code
+        code: code,
+        songs: []
     });
 
     console.log('Codes: ' + codes);
@@ -49,6 +50,13 @@ app.get('/removeCode', function(req,res) {
     if (idx != -1) {
         codes.splice(idx, 1);
     }
+});
+
+app.get('/addSong', function(req,res) {
+    let code = req.data.code;
+    let song = req.data.song;
+
+    codes.find(element => element.code == code).songs.push(song);
 });
 
 
