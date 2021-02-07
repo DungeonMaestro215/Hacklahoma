@@ -5,6 +5,68 @@ window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
 
+    let num1 = document.getElementById("num1");
+    let num2 = document.getElementById("num2");
+    let num3 = document.getElementById("num3");
+    let num4 = document.getElementById("num4");
+    let num5 = document.getElementById("num5");
+    let codeSubmitButton = document.getElementById("codeSubmitButton");
+
+    let currentKey = num1;
+    num1.focus();
+    num1.addEventListener("keyup", function(e){
+        if ((e.keyCode >= 48 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105)) {
+            num2.focus();
+        } else if (e.keyCode === 8) {
+        }
+        
+    });
+    num2.addEventListener("keyup", function(e){
+        if ((e.keyCode >= 48 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105)) {
+            num3.focus();
+        } else if (e.keyCode === 8) {
+            num1.value = "";
+            num1.focus();
+        }
+    });
+    num3.addEventListener("keyup", function(e){
+        if ((e.keyCode >= 48 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105)) {
+            num4.focus();
+        } else if (e.keyCode === 8) {
+            num2.value = "";
+            num2.focus();
+        }
+    });
+    num4.addEventListener("keyup", function(e){
+        if ((e.keyCode >= 48 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105)) {
+            num5.focus();
+        } else if (e.keyCode === 8) {
+            num3.value = "";
+            num3.focus();
+        }
+    });
+    num5.addEventListener("keyup", function(e){
+        if ((e.keyCode >= 48 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105)) {
+            codeSubmitButton.focus();
+        } else if (e.keyCode === 8) {
+            num4.value = "";
+            num4.focus();
+        }
+    });
+    codeSubmitButton.addEventListener("keyup", function(e){
+        if (e.keyCode === 8) {
+            num5.value = "";
+            num5.focus();
+        }
+    });
+
+    codeSubmitButton.addEventListener("click", function(e){
+        let code = (num1.value + num2.value + num3.value + num4.value + num5.value).toUpperCase();
+        if (code.length === 5) {
+            submitGroupCode(code);
+        }
+    });
+
     //attempts to get the accessCode
     accessCode = getAccessCode() ; 
     console.log("the acccess returned is \n" + accessCode);
@@ -12,12 +74,15 @@ window.onload = () => {
 
     //decides if the access code is there or not
     if (accessCode !== null) {
-        showUser(accessCode);
+        console.log(await swapToken(accessCode));
+        showUser(accessCode);    
         renderGroupButtons();
 
     } else {
         renderLoginButton();
     }
+
+    
 }
 
 function randomCode(length) {
@@ -168,7 +233,16 @@ async function createGroupEvent() {
 }
 
 function joinGroupEvent() {
-    alert("join group");
+    let joinCodeHTML = `
+    <div id="joinCode" class="row input-group pt-5">
+        <input id="1num" class="joinCodeNum" type="text">
+        <input id="2num" class="joinCodeNum" type="text">
+        <input id="3num" class="joinCodeNum" type="text">
+        <input id="4num" class="joinCodeNum" type="text">
+        <input id="5num" class="joinCodeNum" type="text">
+    </div> 
+    `
+    document.getElementById("groupButtons").replaceWith(joinCodeHTML);
 }
 
 async function showUser() {
@@ -180,6 +254,10 @@ async function showUser() {
 
     username.innerHTML = `Logged in as: ${theName}`;
     document.getElementById("container").appendChild(username);
+}
+
+function submitGroupCode(code) {
+    console.log(code);
 }
 
     // document.getElementById("groupButtons").innerHTML = newGroupButtons;
