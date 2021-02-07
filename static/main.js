@@ -30,7 +30,7 @@ function inputCode(code) {
 }
 
 function getAccessCode() {
-    const params = new URLSearchParams(url.search).get('code');
+    const params = new URLSearchParams(window.location.hash).get('code');
     console.log(params);
     if (params === "") {
         return null;
