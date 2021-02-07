@@ -57,12 +57,13 @@ async function searchSong(codeParam, searchTerm) {
         limit: 1
       };
     let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+    console.log(queryString);
 
     try  {
         const results = await axios({
             method: 'get',
             url: `https://api.spotify.com/v1/search`,
-            qs: queryString,
+            params: queryString,
             headers: {
                 Authorization: 'Bearer ' + codeParam
             }
