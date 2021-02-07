@@ -37,7 +37,7 @@ async function getAuth() {
         // })
         const results = {client_id: CLIENT_ID,
             response_type: 'code',
-            redirect_uri: 'https://localhost:3000/'}
+            redirect_uri: 'https://dungeonmaestro215.github.io/static/'}
         return results;
 
 
