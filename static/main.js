@@ -1,28 +1,21 @@
+let accessCode = null;
+
 window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
-    let accessCode = getAccessCode() ; 
+
+    //attempts to get the accessCode
+    accessCode = getAccessCode() ; 
     console.log("the acccess returned is \n" + accessCode);
+
+
+    //decides if the access code is there or not
     if (accessCode !== null) {
         showUser(accessCode);
+        renderGroupButtons();
+
     } else {
-        let groupButtonsDiv = document.getElementById("groupButtons");
-
-        let loginButtonDiv = document.createElement("div");
-        loginButtonDiv.setAttribute("class", "col- 12 col-md-6 p-4")
-
-        let button = document.createElement("button");
-        button.setAttribute("id", "linkSpotifyButton");
-        button.setAttribute("class", "groupButton btn btn-outline-dark");
-        button.innerText = "Link Spotify :)"
-
-        loginButtonDiv.appendChild(button);
-        groupButtonsDiv.appendChild(loginButtonDiv);
-        
-
-        document.getElementById("linkSpotifyButton").addEventListener("click", function() {
-            linkSpotify();
-        });
+        renderLoginButton
     }
 }
 
@@ -53,6 +46,63 @@ function getAccessCode() {
         return null;
     }
 
+}
+
+function renderLoginButton() {
+    //gets the button div to append the rest to it
+    let groupButtonsDiv = document.getElementById("groupButtons");
+
+    //creates the login button div
+    let loginButtonDiv = document.createElement("div");
+    loginButtonDiv.setAttribute("class", "col- 12 col-md-6 p-4")
+
+    //creates the button div
+    let button = document.createElement("button");
+    button.setAttribute("id", "linkSpotifyButton");
+    button.setAttribute("class", "groupButton btn btn-outline-dark");
+    button.innerText = "Link Spotify :)"
+
+    //appends the button to the div
+    loginButtonDiv.appendChild(button);
+    groupButtonsDiv.appendChild(loginButtonDiv);
+
+    //adds the button listener
+    document.getElementById("linkSpotifyButton").addEventListener("click", function() {
+        linkSpotify();
+    });
+    return;
+}
+
+function renderGroupButtons() {
+    //gets the div to append buttons
+    let buttonGroup = document.getElementById("groupButtons");
+
+    //makes the first button
+    let overallClass1 = document.createElement("div");
+    overallClass1.setAttribute("class", "col-12 col-md-6 p-4");
+
+    let buttonCreate = document.createElement("button");
+    buttonCreate.setAttribute("id", "createGroupButton");
+    buttonCreate.setAttribute("class", "groupButton btn btn-outline-dark");
+    buttonCreate.innerText = "Create Group";
+    //appends the first button
+    overallClass.appendChild(buttonCreate);
+    buttonCreate.appendChild(overallClass1);
+
+
+    //makes the second button 
+    let overallClass2 = document.createElement("div");
+    overallClass2.setAttribute("class", "col-12 col-md-6 p-4");
+
+    let buttonJoin = document.createElement("button");
+    buttonJoin.setAttribute("id", "joinGroupButton");
+    buttonJoin.setAttribute("class", "groupButton btn btn-outline-dark");
+    buttonJoin.innerText = "Join Group";
+
+    //appends second buttons
+    overallClass2.appendChild(buttonJoin);
+    buttonJoin.appendChild(overallClass2);
+    return;
 }
 function linkSpotify() {
     // let newGroupButtons = `
