@@ -168,7 +168,7 @@ function renderSearch() {
     document.getElementById("container").innerHTML = '';
     document.getElementById("container").appendChild(overallDiv);
 
-    enterButton.addEventListener('click', () => {
+    enterButton.addEventListener('click', async () => {
         await sendSong(theCode, searchBar.value);
         renderSongList(theCode);
     });
