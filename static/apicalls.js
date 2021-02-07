@@ -3,8 +3,8 @@ async function getUserInfo(accessCode) {
         method: 'get',
         url: 'https://api.spotify.com/v1/me',
         header: {
-            // Authorization: 'Bearer ' + accessCode
-            Authorization: 'Bearer ' + Buffer.from(accessCode).toString('base64') 
+            Authorization: 'Bearer ' + accessCode
+            // Authorization: 'Bearer ' + Buffer.from(accessCode).toString('base64') 
         }
     });
     console.log(user);
