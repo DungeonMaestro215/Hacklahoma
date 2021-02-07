@@ -168,7 +168,10 @@ function renderSearch() {
     document.getElementById("container").innerHTML = '';
     document.getElementById("container").appendChild(overallDiv);
 
-    enterButton.addEventListener('click', () => sendSong(theCode, searchBar.value));
+    enterButton.addEventListener('click', async () => {
+        await sendSong(theCode, searchBar.value);
+        renderSongList(theCode);
+    });
 }
 
 function joinGroupEvent() {
@@ -250,6 +253,8 @@ function joinGroupEvent() {
             theCode = code;
         }
     });
+
+    renderSongList(theCode);
 }
 
 async function showUser() {
@@ -286,6 +291,18 @@ async function renderSongList(code) {
             code: code,
         }
     }).songs;
+
+    let songListDiv = document.createElement('div');
+    songListDiv.setAttribute('id', 'songlist');
+
+    songs.forEach(song => {
+        let songDiv = document.createElement('div');
+        songDiv.setAttribute('class', 'song');
+        songDiv.innerText = song;  
+        songListDiv.appendChild(songDiv);
+    });
+
+    document.getElementById('searchButton').parentElement.appendChild(songListDiv);
 }
 
     // document.getElementById("groupButtons").innerHTML = newGroupButtons;

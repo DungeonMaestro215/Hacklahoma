@@ -144,3 +144,16 @@ body, html {
     justify-content: center;
     align-items: center;
 }
+
+#songlist {
+    width: 100%;
+    border: 4px solid #05ffa1;
+    font-size: 3.5rem;   
+    color: #ff71ce;
+    backdrop-filter: blur(6px) grayscale(80%);
+    box-shadow:
+    0 0 10px 5px #ff71ce;
+    animation-name: textHue;
+    animation-duration: 100s;
+    animation-iteration-count: infinite;
+}

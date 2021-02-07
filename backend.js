@@ -15,7 +15,10 @@ const server = http.createServer(app);
 app.use(cors());
 
 // Generate random codes
-let codes = [{ code: 1 }];
+let codes = [{ 
+    code: 12345,
+    songs: ['space jam', '22', 'William cannot authorize']
+}];
 
 function randomCode(length) {
     var result= '';
@@ -64,7 +67,7 @@ app.post('/addSong', function(req,res) {
     console.log('Codes: ' + codes);
     let playlist = codes.find(element => element.code == code);
     if (playlist != undefined) {
-        playlist.songs.push(song);
+        playlist.songs.unshift(song);
         // res.send('Song added to playlist');
         res.json(playlist);
     } else {
@@ -77,6 +80,16 @@ app.post('/addSong', function(req,res) {
 
 app.get('/getSongs', function(req,res) {
     res.json({code: 1, songs: ['a', 'b']});
+
+    let code = req.body.code;
+
+    let playlist = codes.find(element => element.code == code);
+    if (playlist != undefined) {
+        res.json(playlist);
+    } else {
+        // What do we do here??
+        res.json({ songs: [] });
+    }
 });
 
 
