@@ -16,6 +16,7 @@ async function getUserInfo(accessCode) {
 }
 
 async function getToken(code) {
+    console.log("we are in getToken and code is " + code);
     try  {
         const results = await axios({
             method: 'post',
