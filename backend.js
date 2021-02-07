@@ -27,13 +27,15 @@ function randomCode(length) {
    return result;
 }
 
-app.get('/static/getCode', async function(req,res) {
+app.get('/getCode', async function(req,res) {
     let code = randomCode(5);
-    while (codes.includes(code)) {
+    while (codes.reduce((acc, val) => acc || val.code == code)) {
         code = randomCode(5);
     }
 
-    codes.push(code);
+    codes.push({ 
+        code: code
+    });
 
     console.log('Codes: ' + codes);
     console.log('Code: ' + code);
@@ -41,6 +43,7 @@ app.get('/static/getCode', async function(req,res) {
     // res.json({ code: code });
     res.send({code});
 });
+
 
 //api stuff
 app.get('/static/authenticate', async function(req,res) {
