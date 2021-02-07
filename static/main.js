@@ -1,6 +1,9 @@
 let accessCode = null;
 let theName = null; 
 
+const {getUserInfo} = require('./apicalls.js') ;
+
+
 window.onload = () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
@@ -12,8 +15,7 @@ window.onload = () => {
 
     //decides if the access code is there or not
     if (accessCode !== null) {
-        showUser(accessCode);
-    
+        showUser(accessCode);    
         renderGroupButtons();
 
     } else {

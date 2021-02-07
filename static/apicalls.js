@@ -27,3 +27,5 @@ async function swapToken(accessCode) {
 
     return results;
 }
+
+module.exports = { getUserInfo } ;
