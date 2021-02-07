@@ -8,23 +8,21 @@ window.onload = () => {
 }
 
 function linkSpotify() {
-    let newGroupButtons = `
-    <div class="col-12 col-md-6 p-4">
-        <button id="createGroupButton" class="groupButton btn btn-outline-dark">
-            Create Group
-        </button>
-    </div>
-    <div class="col-12 col-md-6 p-4">
-        <button id="joinGroupButton" class="groupButton btn btn-outline-dark">
-            Join Group
-        </button>
-    </div>
-    `
+    // let newGroupButtons = `
+    // <div class="col-12 col-md-6 p-4">
+    //     <button id="createGroupButton" class="groupButton btn btn-outline-dark">
+    //         Create Group
+    //     </button>
+    // </div>
+    // <div class="col-12 col-md-6 p-4">
+    //     <button id="joinGroupButton" class="groupButton btn btn-outline-dark">
+    //         Join Group
+    //     </button>
+    // </div>
+    // `
 
-    document.getElementById("groupButtons").innerHTML = newGroupButtons;
-    document.getElementById('test').addEventListener('click', communicator);
-}
+    // document.getElementById("groupButtons").innerHTML = newGroupButtons;
+    // document.getElementById('test').addEventListener('click', communicator);
 
-export function randomCode() {
-    return 2;
+    window.location = window.location + "static/authenticate"
 }

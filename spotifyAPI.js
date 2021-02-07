@@ -26,15 +26,18 @@ const qs = require('qs');
  */
 async function getAuth() {
     try {
-        const results = await axios({
-            method: 'get',
-            url: 'https://accounts.spotify.com/authorize',
-            query: qs.stringify({
-                client_id: CLIENT_ID,
-                response_type: 'code',
-                redirect_uri: 'https://google.com',
-            })
-        })
+        // const results = await axios({
+        //     method: 'get',
+        //     url: 'https://accounts.spotify.com/authorize',
+        //     query: qs.stringify({
+        //         client_id: CLIENT_ID,
+        //         response_type: 'code',
+        //         redirect_uri: 'https://localhost:3000/',
+        //     })
+        // })
+        const results = {client_id: CLIENT_ID,
+            response_type: 'code',
+            redirect_uri: 'https://localhost:3000/'}
         return results;
 
 
@@ -112,4 +115,3 @@ async function main() {
     console.log(test);
 }
 module.exports = { getAuth } ;
-main();

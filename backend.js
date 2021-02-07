@@ -19,7 +19,16 @@ app.use(cors());
 app.get('/static/authenticate', async function(req,res) {
     //run the api to auth spotify
     let test = await getAuth();
-    res.send(test.data)//data it returns
+    res.redirect('https://accounts.spotify.com/authorize' +
+    '?response_type=code' +
+    '&client_id=' + test.client_id + '&redirect_uri=' + encodeURIComponent(test.redirect_url));
+    // res.send(Object.keys(test.));
+    res.end();
+    // console.log("RIGHT HERE HOMIE --------------------------------------------------------------------------");
+    // console.log(Object.keys(test.request._redirectable._currentUrl));
+    // res.send(test);
+    // res.setHeader("Location", test.request._redirectable._currentUrl);
+    // res.end();
 });
 
 
@@ -30,7 +39,6 @@ app.use('/node_modules', express.static('node_modules'));
 
 // Default URL for website
 app.use('/', function(req,res) {
-    console.log('help me');
     res.sendFile(path.join(__dirname+'/static/index.html'));
 });
 
