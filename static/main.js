@@ -4,7 +4,7 @@ window.onload = () => {
     let accessCode = getAccessCode() ; 
     console.log("the acccess returned is \n" + accessCode);
     if (accessCode !== null) {
-
+        showUser(accessCode);
     } else {
         let groupButtonsDiv = document.getElementById("groupButtons");
 
@@ -73,6 +73,27 @@ function linkSpotify() {
 
     // window.location = window.location + "static/authenticate";
     window.location = "https://hacklahoma2.herokuapp.com/static/authenticate";
+}
+
+function showUser(accessCode) {
+    // Display User's name when logged in
+    let username = `
+    <div id="user" class="groupButton">
+        Logged in as: Denny
+    </div>
+    `;
+    document.getElementById("groupButtons").append(username);
+}
+
+async function getUserInfo() {
+    const user = await axios({
+        method: 'get',
+        url: 'https://api.spotify.com/v1/me',
+        headers: {
+            Authorization: 'USER THING HERE'
+        }
+    });
+    return user;
 }
     // document.getElementById("groupButtons").innerHTML = newGroupButtons;
     // document.getElementById("createGroupButton").addEventListener("click", function() {alert("Your code is: " + randomCode(5));})
