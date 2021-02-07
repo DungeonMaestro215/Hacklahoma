@@ -145,7 +145,7 @@ function renderSearch() {
     overallDiv.setAttribute("id", "searchDiv");
 
     //makes code
-    let codeLabel = document.createElement("div") ;
+    let codeLabel = document.createElement("h1") ;
     codeLabel.setAttribute('id', 'genericText');
     codeLabel.innerText = theCode;
 
