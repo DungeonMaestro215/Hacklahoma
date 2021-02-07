@@ -90,10 +90,9 @@ app.get('/getSongs', function(req,res) {
     console.log("query");
     console.log(Object.keys(req.query));
 
-    let code = req.query;
-    console.log("Code: " + code);
+    let info = req.query.code;
 
-    let playlist = codes.find(element => element.code == code);
+    let playlist = codes.find(element => element.code == info);
     console.log(playlist);
     if (playlist != undefined) {
         res.json(playlist);

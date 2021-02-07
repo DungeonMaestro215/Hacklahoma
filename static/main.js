@@ -145,7 +145,7 @@ function renderSearch() {
     overallDiv.setAttribute("id", "searchDiv");
 
     //makes code
-    let codeLabel = document.createElement("div") ;
+    let codeLabel = document.createElement("h1") ;
     codeLabel.setAttribute('class', 'genericText');
     codeLabel.innerText = theCode;
 
@@ -171,6 +171,8 @@ function renderSearch() {
     document.getElementById("container").appendChild(overallDiv);
 
     enterButton.addEventListener('click', async () => {
+        let songData = await searchSong(userData.access_token, searchBar.value);
+        console.log(songData);
         await sendSong(theCode, searchBar.value);
         renderSongList(theCode);
     });

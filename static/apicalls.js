@@ -50,8 +50,8 @@ async function getToken(codeParam) {
  * basically save the URI not the id
  */
 async function searchSong(codeParam, searchTerm) {
-    let params = {
-        code: codeParam, 
+    console.log("Token: " + codeParam);
+    let params = { 
         q: searchTerm,
         type: 'track',
         limit: 1
@@ -62,7 +62,10 @@ async function searchSong(codeParam, searchTerm) {
         const results = await axios({
             method: 'get',
             url: `https://api.spotify.com/v1/search`,
-            data: queryString
+            qs: queryString,
+            headers: {
+                Authorization: 'Bearer ' + codeParam
+            }
             
         });
         return results;
