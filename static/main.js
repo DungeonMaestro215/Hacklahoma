@@ -1,18 +1,17 @@
 let accessCode = null;
 let theName = null; 
-let theCode = null;
+let userData = null;
 
-window.onload = () => {
+window.onload = async () => {
     console.log("Loaded");
     // document.getElementById('test').addEventListener('click', () => communicator());
 
     
 
     //attempts to get the accessCode
-    accessCode =  getAccessCode() ; 
+    accessCode =  await getAccessCode() ; 
     
-    console.log("the acccess returned is \n" + accessCode);
-
+    console.log(userData);
 
     //decides if the access code is there or not
     if (accessCode !== null) {
@@ -46,11 +45,15 @@ function inputCode(code) {
     }
 }
 
-function getAccessCode() {
+async function getAccessCode() {
     const params = new URLSearchParams(window.location.search);
 
     if (params.has('code')) {
         let access = params.get('code');
+        //return access;
+        //time to get tokens
+        let tokenData = await getUserToken(code);
+        userData = tokenData;
         return access;
     } else {
         return null;
@@ -58,6 +61,10 @@ function getAccessCode() {
     // let data = await getToken();
     // return data.data.access_token;
 
+}
+async function getUserToken(code) {
+    let results = await getToken(code) ;
+    return results.data;
 }
 
 function renderLoginButton() {

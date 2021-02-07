@@ -15,14 +15,14 @@ async function getUserInfo(accessCode) {
     return user;
 }
 
-async function getToken() {
+async function getToken(code) {
     try  {
         const results = await axios({
             method: 'post',
             url: `https://accounts.spotify.com/api/token`,
             data: qs.stringify({
               grant_type: "authorization_code",
-              code: '/authorize endpoint', 
+              code: code, 
               redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
             }),
             headers: {
