@@ -134,16 +134,6 @@ function showUser() {
     document.getElementById("container").appendChild(username);
 }
 
-async function getUserInfo() {
-    const user = await axios({
-        method: 'get',
-        url: 'https://api.spotify.com/v1/me',
-        headers: {
-            Authorization: accessCode
-        }
-    });
-    return user;
-}
     // document.getElementById("groupButtons").innerHTML = newGroupButtons;
     // document.getElementById("createGroupButton").addEventListener("click", function() {alert("Your code is: " + randomCode(5));})
     // document.getElementById("joinGroupButton").addEventListener('click', function() {
