@@ -9,11 +9,12 @@
     "express": "^4.17.1",
     "node.js": "0.0.1-security",
     "passport-spotify": "^2.0.0",
-    "qs": "^6.9.6"
+    "qs": "^6.9.6",
+    "serve": "^11.3.2"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node backend.js",
+    "start": "node backend.js && serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
