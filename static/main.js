@@ -289,7 +289,7 @@ async function renderSongList(code) {
     console.log(songs.data);
     console.log(songs.data.songs);
 
-    if (document.getElementById('songlist') == null) {
+    if (document.getElementById('songlist') != null) {
         document.getElementById('songlist').remove();
     }
 
