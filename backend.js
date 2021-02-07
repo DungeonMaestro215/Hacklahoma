@@ -14,6 +14,36 @@ const server = http.createServer(app);
 // app.use(body_parser.json());
 app.use(cors());
 
+// Generate random codes
+let codes = [{ code: 1 }];
+
+function randomCode(length) {
+    var result= '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+   return result;
+}
+
+app.get('/getCode', async function(req,res) {
+    let code = randomCode(5);
+    while (codes.reduce((acc, val) => acc || val.code == code), false) {
+        code = randomCode(5);
+    }
+
+    codes.push({ 
+        code: code
+    });
+
+    console.log('Codes: ' + codes);
+    console.log('Code: ' + code);
+
+    // res.json({ code: code });
+    res.send({code});
+});
+
 
 //api stuff
 app.get('/static/authenticate', async function(req,res) {
@@ -59,7 +89,6 @@ app.post('/', (req, res) => {
     res.send(`Request received`);
 });
 */
-
 // Start listening
 server.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`);

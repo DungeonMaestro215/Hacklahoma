@@ -1,4 +1,5 @@
 let accessCode = null;
+let theName = null; 
 
 window.onload = () => {
     console.log("Loaded");
@@ -73,7 +74,8 @@ window.onload = () => {
 
     //decides if the access code is there or not
     if (accessCode !== null) {
-        showUser(accessCode);
+        console.log(await swapToken(accessCode));
+        showUser(accessCode);    
         renderGroupButtons();
 
     } else {
@@ -90,7 +92,12 @@ function randomCode(length) {
     for ( var i = 0; i < length; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-   return result;
+    let codes = [];
+    for (let i = 0; i < codes.length + 1; i++) {
+        codes[i] = result;
+    }
+    // export {codes};
+    return result;
 }
 
 function inputCode(code) {
@@ -135,6 +142,24 @@ function renderLoginButton() {
         linkSpotify();
     });
     return;
+
+}
+
+function randomCode(length) {
+    var result= '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+   return result;
+}
+
+function inputCode(code) {
+    var code = code;
+    if (code.length != 5) {
+        return error;
+    }
 }
 
 function renderGroupButtons() {
@@ -175,7 +200,7 @@ function linkSpotify() {
     window.location = "https://hacklahoma2.herokuapp.com/static/authenticate";
 }
 
-function createGroupEvent() {
+async function createGroupEvent() {
     //makes search div
     let overallDiv = document.createElement("div")
     overallDiv.setAttribute("id", "searchDiv");
@@ -199,7 +224,12 @@ function createGroupEvent() {
     //replaces buttons with search bar
     document.getElementById("groupButtons").replaceWith(overallDiv);
 
-
+    // Get Code
+    let code = await axios({
+        method: 'get',
+        url: `https://hacklahoma2.herokuapp.com/getCode`
+    });
+    console.log(code);
 }
 
 function joinGroupEvent() {
@@ -215,11 +245,14 @@ function joinGroupEvent() {
     document.getElementById("groupButtons").replaceWith(joinCodeHTML);
 }
 
-function showUser() {
+async function showUser() {
     // Display User's name when logged in
     let username = document.createElement('div');
     username.setAttribute('id', 'user');
-    username.innerHTML = `Logged in as: ${getUserInfo(accessCode).display_name}`;
+    let response = await getUserInfo(accessCode);
+    theName = response.data.display_name;
+
+    username.innerHTML = `Logged in as: ${theName}`;
     document.getElementById("container").appendChild(username);
 }
 
