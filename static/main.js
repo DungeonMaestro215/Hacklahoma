@@ -65,7 +65,7 @@ async function getAccessCode() {
 }
 async function getUserToken(code) {
     let results = await getToken(code) ;
-    return results.data;
+    return results;
 }
 
 function renderLoginButton() {
