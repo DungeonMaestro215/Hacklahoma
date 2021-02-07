@@ -27,7 +27,7 @@ function randomCode(length) {
    return result;
 }
 
-app.get('/getCode', async function(req,res) {
+app.get('/getCode', function(req,res) {
     let code = randomCode(5);
     while (codes.reduce((acc, val) => acc || val.code == code), false) {
         code = randomCode(5);
@@ -42,6 +42,13 @@ app.get('/getCode', async function(req,res) {
 
     // res.json({ code: code });
     res.send({code});
+});
+
+app.get('/removeCode', function(req,res) {
+    let idx = codes.find(element => element.code == code);
+    if (idx != -1) {
+        codes.splice(idx, 1);
+    }
 });
 
 
