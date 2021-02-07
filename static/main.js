@@ -175,7 +175,9 @@ async function showUser() {
     // Display User's name when logged in
     let username = document.createElement('div');
     username.setAttribute('id', 'user');
-    theName = await getUserInfo(accessCode).data.display_name;
+    let response = await getUserInfo(accessCode);
+    theName = response.data.display_name;
+
     username.innerHTML = `Logged in as: ${theName}`;
     document.getElementById("container").appendChild(username);
 }
