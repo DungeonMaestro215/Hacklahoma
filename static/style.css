@@ -104,10 +104,10 @@ body, html {
 #user {
     color: white;
     height: 4rem;
-    width: 20%;
+    width: 40%;
     margin-top: 6rem;
     padding: 1rem;
-    font-size: 2rem;
+    font-size: 1rem;
     animation-name: textHue;
     animation-duration: 100s;
     animation-iteration-count: infinite;
