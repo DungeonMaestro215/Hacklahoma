@@ -26,7 +26,7 @@ async function getToken(codeParam) {
         const results = await axios({
             method: 'post',
             url: `https://accounts.spotify.com/api/token`,
-            data: {
+            params: {
               grant_type: "authorization_code",
               code: codeParam, 
               redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
