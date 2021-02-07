@@ -28,7 +28,7 @@ async function getToken(code) {
             },
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
-              'Authorization': 'Basic ' + (CLIENT_ID + ':' + CLIENT_SECRET).toString('base64') // client id and secret from env
+              'Authorization': (CLIENT_ID, CLIENT_SECRET)
             }
             
         });
