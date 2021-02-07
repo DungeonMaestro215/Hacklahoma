@@ -15,6 +15,19 @@ const server = http.createServer(app);
 app.use(cors());
 
 
+app.get('/static/getCode', async function(req,res) {
+    let code = randomCode(5);
+    while (codes.includes(code)) {
+        code = randomCode(5);
+    }
+
+    console.log('Codes: ' + codes);
+    console.log('Code: ' + code);
+
+    // res.json({ code: code });
+    res.send({code});
+});
+
 //api stuff
 app.get('/static/authenticate', async function(req,res) {
     //run the api to auth spotify
@@ -71,19 +84,6 @@ function randomCode(length) {
     }
    return result;
 }
-
-app.get('/static/getCode', function(req,res) {
-    let code = randomCode(5);
-    while (codes.includes(code)) {
-        code = randomCode(5);
-    }
-
-    console.log('Codes: ' + codes);
-    console.log('Code: ' + code);
-
-    // res.json({ code: code });
-    res.send({code});
-});
 
 // Start listening
 server.listen(port, () => {
