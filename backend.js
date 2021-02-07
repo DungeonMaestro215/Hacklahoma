@@ -19,12 +19,10 @@ app.use(cors());
 app.get('/static/authenticate', async function(req,res) {
     //run the api to auth spotify
     let test = await getAuth();
-    console.log('https://accounts.spotify.com/authorize' +
-    '?response_type=code' +
-    '&client_id=' + test.client_id + '&redirect_uri=' + encodeURIComponent(test.redirect_url));
+    console.log(test.redirect_uri);
     res.redirect('https://accounts.spotify.com/authorize' +
     '?response_type=code' +
-    '&client_id=' + test.client_id + '&redirect_uri=' + encodeURIComponent(test.redirect_url));
+    '&client_id=' + test.client_id + '&redirect_uri=' + encodeURIComponent(test.redirect_uri));
     // res.send(Object.keys(test.));
     // res.end();
     // console.log("RIGHT HERE HOMIE --------------------------------------------------------------------------");
