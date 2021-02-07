@@ -86,8 +86,9 @@ function renderGroupButtons() {
     buttonCreate.setAttribute("class", "groupButton btn btn-outline-dark");
     buttonCreate.innerText = "Create Group";
     //appends the first button
-    overallClass.appendChild(buttonCreate);
-    buttonCreate.appendChild(overallClass1);
+   
+    overallClass1.appendChild(buttonCreate);
+    buttonGroup.appendChild(overallClass1);
 
 
     //makes the second button 
@@ -101,7 +102,7 @@ function renderGroupButtons() {
 
     //appends second buttons
     overallClass2.appendChild(buttonJoin);
-    buttonJoin.appendChild(overallClass2);
+    buttonGroup.appendChild(overallClass2);
     return;
 }
 function linkSpotify() {
