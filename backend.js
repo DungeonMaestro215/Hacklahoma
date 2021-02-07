@@ -91,7 +91,7 @@ app.get('/getSongs', function(req,res) {
         res.json(playlist);
     } else {
         // What do we do here??
-        res.json({ songs: [] });
+        res.send('Bad stuff is happening.');
     }
 });
 
