@@ -50,6 +50,7 @@ async function getToken(codeParam) {
  * basically save the URI not the id
  */
 async function searchSong(codeParam, searchTerm) {
+    console.log("Token: " + codeParam)
     let params = {
         code: codeParam, 
         q: searchTerm,
