@@ -30,10 +30,11 @@ async function getToken(codeParam) {
               grant_type: "authorization_code",
               code: codeParam, 
               redirect_uri: 'https://hacklahoma2.herokuapp.com/static/',
+              client_id: CLIENT_ID,
+              client_secret: CLIENT_SECRET
             },
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
-              'Authorization': btoa(CLIENT_ID  + ":" + CLIENT_SECRET)
             }
             
         });
