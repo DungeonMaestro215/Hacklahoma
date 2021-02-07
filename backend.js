@@ -16,7 +16,7 @@ app.use(cors());
 
 
 //api stuff
-app.get('https://hacklahoma2.herokuapp.com/static/authenticate', async function(req,res) {
+app.get('/static/authenticate', async function(req,res) {
     //run the api to auth spotify
     let test = await getAuth();
     res.redirect('https://accounts.spotify.com/authorize' +
